@@ -8,8 +8,16 @@
     "build-dev": "webpack serve  --config webpack.dev.js --open Chrome",
     "build-prod": "webpack --config webpack.prod.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bruno-Gurgel/personal-website"
+  },
   "author": "Bruno Gurgel",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Bruno-Gurgel/personal-website/issues"
+  },
+  "homepage": "https://github.com/Bruno-Gurgel/personal-website#readme",
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "@babel/plugin-transform-runtime": "^7.12.1",
