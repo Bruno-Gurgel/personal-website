@@ -9,62 +9,71 @@
 
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
-  <div class="grid-container">
-    <nav>
-      <ul>
-        <li class="logo">Blog Template</li>
-        <li>Projects</li>
-        <li>About me</li>
+  <div class="grid">
+    <nav class="nav">
+      <ul class="nav__list">
+        <li><a href="index.html" class="nav__item nav__item--logo">Logo</a></li>
+        <li>
+          <a class=" nav__item nav__item--submenu" tabindex="0"> Projects</a>
+          <ul class="nav__submenu"></ul>
+        </li>
+        <li class="nav__item"><a href="#">About me</a></li>
       </ul>
     </nav>
-    <main>
-      <div role="banner" class="banner">
-        <h1 class="hd-feat-post">What am I?</h1>
-      </div>
-      <article>
-        <img src="" alt="" />
-        <a href="">
-          <h2>Project name</h2>
-          <p>Brief description of the project</p>
-        </a>
-      </article>
-      <article>
-        <img src="" alt="" />
-        <a href="">
-          <h2>Project name</h2>
-          <p>Brief description of the project</p>
-        </a>
-      </article>
-      <article>
-        <img src="" alt="" />
-        <a href="">
-          <h2>Project name</h2>
-          <p>Brief description of the project</p>
-        </a>
-      </article>
-      <article>
-        <img src="" alt="" />
-        <a href="">
-          <h2>Project name</h2>
-          <p>Brief description of the project</p>
-        </a>
-      </article>
-      <article>
-        <img src="" alt="" />
-        <a href="">
-          <h2>Project name</h2>
-          <p>Brief description of the project</p>
-        </a>
-      </article>
-      <article>
-        <img src="" alt="" />
-        <a href="">
-          <h2>Project name</h2>
-          <p>Brief description of the project</p>
-        </a>
-      </article>
+    <main class="main">
+      <section class="banner">
+        <h1 class="banner___heading">What am I?</h1>
+      </section>
+      <section class="projects">
+        <article class="projects__article">
+          <img src="" alt="" class="projects__image" />
+          <a href="">
+            <h2 class="projects__heading">Project name</h2 class="projects__heading">
+            <p class="projects__text">Brief description of the project</p>
+          </a>
+        </article>
+        <article class="projects__article">
+          <img src="" alt="" class="projects__image" />
+          <a href="">
+            <h2 class="projects__heading">Project name</h2 class="projects__heading">
+            <p class="projects__text">Brief description of the project</p>
+          </a>
+        </article>
+        <article class="projects__article">
+          <img src="" alt="" class="projects__image" />
+          <a href="">
+            <h2 class="projects__heading">Project name</h2 class="projects__heading">
+            <p class="projects__text">Brief description of the project</p>
+          </a>
+        </article>
+        <article class="projects__article">
+          <img src="" alt="" class="projects__image" />
+          <a href="">
+            <h2 class="projects__heading">Project name</h2 class="projects__heading">
+            <p class="projects__text">Brief description of the project</p>
+          </a>
+        </article>
+        <article class="projects__article">
+          <img src="" alt="" class="projects__image" />
+          <a href="">
+            <h2 class="projects__heading">Project name</h2 class="projects__heading">
+            <p class="projects__text">Brief description of the project</p>
+          </a>
+        </article>
+        <article class="projects__article">
+          <img src="" alt="" class="projects__image" />
+          <a href="">
+            <h2 class="projects__heading">Project name</h2 class="projects__heading">
+            <p class="projects__text">Brief description of the project</p>
+          </a>
+        </article>
+      </section>
     </main>
-    <footer>
+    <footer class="footer">
+      <h2 class="footer__heading">Add me!</h2>
+      <p><a aria-label="Add me on GitHub" href="https://github.com/Bmg1612" class="footer__link">Github</a></p>
+      <p><a aria-label="Add me on Linkedin" href="https://www.linkedin.com/in/bruno-gurgel/"
+          class="footer__link">Linkedin</a></p>
     </footer>
   </div>
 </body>
