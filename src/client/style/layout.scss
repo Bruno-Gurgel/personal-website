@@ -1,0 +1,42 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 20% 60% 20%;
+  grid-template-areas:
+    'nav'
+    'main'
+    'footer';
+}
+
+.nav {
+  grid-area: nav;
+  border: 2px solid blue;
+  .nav__list {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+}
+
+.main {
+  grid-area: main;
+  display: flex;
+  flex-flow: column nowrap;
+  border: 2px solid red;
+}
+
+.banner {
+  border: 2px solid yellow;
+}
+
+.projects {
+  display: flex;
+  flex-flow: row wrap;
+  border: 2px solid black;
+}
+
+.footer {
+  grid-area: footer;
+  border: 2px solid green;
+}
