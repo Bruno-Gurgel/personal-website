@@ -4,7 +4,7 @@ body {
 .grid {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 20% 55% 25%;
+  grid-template-rows: min-content;
   grid-template-areas:
     'nav'
     'main'
@@ -42,21 +42,27 @@ body {
 
 .projects {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column wrap;
+  align-items: center;
   gap: 10px;
   border: 2px solid black;
   .projects__article {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    border-radius: 25px;
+    border-radius: 20%;
     transition: 0.3s;
     background-color: #c8cdd2;
     text-align: center;
     margin: 20px 0;
+    width: 40%;
+    overflow: hidden;
+  }
+  .figcaption {
+    display: none;
   }
 
   .projects__image {
+    display: block;
     width: 100%;
-    border-radius: 25px;
   }
 
   .projects__link {
