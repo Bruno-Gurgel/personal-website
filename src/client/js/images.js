@@ -1,4 +1,3 @@
-import logoUdacity from '../img/udacity.png';
 import blogImage from '../img/blog.jpg';
 import landingPageImage from '../img/landing-page.png';
 import weatherImage from '../img/weather.jpg';
@@ -12,7 +11,6 @@ const loadImages = document.addEventListener('DOMContentLoaded', () => {
     image.alt = caption;
   };
 
-  useImage('design-patterns', logoUdacity, "Udacity's Logo");
   useImage('blog-fend', blogImage, "Table with 'Blog' written in the middle");
   useImage('landing-page-fend', landingPageImage, 'Landing page template');
   useImage('weather-fend', weatherImage, 'Clouds with orange shadow');
