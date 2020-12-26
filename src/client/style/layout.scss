@@ -13,6 +13,7 @@ body {
 
 .nav {
   grid-area: nav;
+  border-bottom: 2px dotted #ffef96;
   .nav__list {
     display: flex;
     flex-flow: column nowrap;
@@ -31,6 +32,10 @@ body {
   flex-flow: column nowrap;
 }
 
+.banner {
+  border-bottom: 2px dotted #ffef96;
+}
+
 .projects {
   display: flex;
   flex-flow: column wrap;
@@ -44,16 +49,31 @@ body {
     margin: 20px 0;
     width: 80%;
     overflow: hidden;
+    transition: background-color 1s ease;
     .figcaption {
       display: none;
     }
     &:hover {
-      background-color: orange;
       .projects__image {
         display: none;
       }
       .figcaption {
         display: block;
+      }
+      &.--travel {
+        background-color: #ff7b25;
+      }
+      &.--npl {
+        background-color: #e6e2d3;
+      }
+      &.--weather {
+        background-color: #ffcc5c;
+      }
+      &.--landing {
+        background-color: #eea29a;
+      }
+      &.--blog {
+        background-color: #e0e2e4;
       }
     }
   }
@@ -61,5 +81,5 @@ body {
 
 .footer {
   grid-area: footer;
-  border-top: 2px dotted #000000;
+  border-top: 2px dotted #ffef96;
 }
