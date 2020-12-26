@@ -12,37 +12,57 @@ body {
   padding: 0px;
   border: 0px;
   color: $primary-color;
-  .skip__link {
-    top: -50px;
-    position: absolute;
-    background-color: #ff0000;
-    left: 0px;
-    color: #ffffff;
-    padding: 8px;
-    z-index: 100;
-  }
-
-  .skip__link:focus {
-    top: 0;
-  }
 }
 
 .nav {
   font-size: 1.5rem;
+  .nav__list {
+    list-style-type: none;
+    .nav__item {
+      text-decoration: none;
+      color: $primary-color;
+    }
+  }
 }
 
-a {
-  color: $primary-color;
+.projects__figure {
+  text-align: center;
+  .projects__heading {
+    color: #34383c;
+  }
+
+  .projects__text {
+    color: #242a2f;
+  }
+  .projects__link {
+    text-decoration: none;
+  }
+  &:hover {
+    background-color: orange;
+    .projects__image {
+      display: none;
+    }
+    .projects__heading {
+      font-size: 2rem;
+    }
+    .projects__text {
+      font-size: 1.2rem;
+    }
+    .projects__link {
+      font-size: 1rem;
+    }
+  }
 }
 
 .footer {
-  h2 {
+  text-align: center;
+  .footer__heading {
     // font-family: $heading-font;
     font-size: 2rem;
     text-decoration: underline;
     margin: 0 0 10px 0;
   }
-  a {
+  .footer__link {
     color: $primary-color;
     font-size: 1.5rem;
   }

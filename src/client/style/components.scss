@@ -1,0 +1,36 @@
+.skip__link {
+  top: -50px;
+  position: absolute;
+  background-color: #ff0000;
+  left: 0px;
+  color: #ffffff;
+  padding: 8px;
+  z-index: 100;
+  &:focus {
+    top: 0;
+  }
+}
+
+.projects__image {
+  display: block;
+  width: 100%;
+}
+
+.projects__repo {
+  display: block;
+  margin: 0px auto;
+  width: 30%;
+  height: 20px;
+  cursor: pointer;
+}
+
+.projects__button {
+  display: block;
+  width: 60%;
+  height: 30px;
+  margin: 10px auto;
+  border-radius: 25%;
+  background-color: #302b63;
+  color: $primary-color;
+  cursor: pointer;
+}
