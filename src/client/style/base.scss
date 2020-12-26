@@ -25,6 +25,31 @@ body {
   }
 }
 
+.banner {
+  text-align: center;
+  .banner__heading {
+    color: #90e0ef;
+    font-size: 2rem;
+    .banner__underlined {
+      text-decoration: underline;
+      text-decoration-color: #ff0000;
+    }
+    .banner__passionate {
+      color: #ff0000;
+    }
+  }
+  .banner__intro {
+    font-size: 1.7rem;
+    margin-top: 50px;
+    margin-bottom: 2px;
+    text-decoration: underline;
+  }
+  .banner__observation {
+    font-size: 1rem;
+    font-style: italic;
+  }
+}
+
 .projects__figure {
   text-align: center;
   .projects__heading {
