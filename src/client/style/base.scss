@@ -1,6 +1,5 @@
 // Variables
-// $primary-font: "Open Sans Condensed", sans-serif;
-// $heading-font: "Pacifico", cursive;
+$font: 'Caveat', cursive;
 $primary-color: #ffe9e3;
 
 body {
@@ -12,6 +11,7 @@ body {
   padding: 0px;
   border: 0px;
   color: $primary-color;
+  font-family: $font;
 }
 
 .nav {
@@ -41,16 +41,11 @@ body {
     }
   }
   .banner__intro {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     margin-top: 50px;
     margin-bottom: 2px;
     text-decoration: underline;
     color: #ff9500;
-  }
-  .banner__observation {
-    font-size: 1rem;
-    font-style: italic;
-    font-weight: 100;
   }
 }
 

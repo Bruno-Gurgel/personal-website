@@ -5,15 +5,11 @@
   }
   .banner {
     .banner__heading {
-      font-size: 2.5rem;
+      font-size: 3rem;
     }
 
     .banner__intro {
-      font-size: 2rem;
-    }
-
-    .banner__observation {
-      font-size: 1.2rem;
+      font-size: 2.5rem;
     }
   }
   .projects {
@@ -42,6 +38,7 @@
           display: block;
           width: 60%;
           height: 50px;
+          font-size: 1.3rem;
         }
       }
     }
@@ -74,15 +71,11 @@
   .banner {
     .banner__heading {
       padding: 20px;
-      font-size: 4rem;
+      font-size: 5rem;
     }
 
     .banner__intro {
-      font-size: 2.5rem;
-    }
-
-    .banner__observation {
-      font-size: 1.5rem;
+      font-size: 3rem;
     }
   }
   .projects {
@@ -114,9 +107,9 @@
           display: block;
           width: 60%;
           height: 50px;
-          font-size: 1rem;
+          font-size: 1.5rem;
           &:hover {
-            font-size: 1.4rem;
+            font-size: 1.8rem;
           }
         }
       }
