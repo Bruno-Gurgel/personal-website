@@ -45,11 +45,11 @@ body {
     margin: 20px 0;
     width: 80%;
     overflow: hidden;
-    transition: background-color 1s ease;
     .figcaption {
       display: none;
     }
     &:hover {
+      transition: all 1s ease;
       .projects__image {
         display: none;
       }
