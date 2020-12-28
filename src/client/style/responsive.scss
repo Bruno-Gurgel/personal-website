@@ -53,16 +53,7 @@
     border: 0px;
     .nav__list {
       flex-flow: row nowrap;
-      justify-content: space-evenly;
-      .--home {
-        order: 1;
-      }
-      .--about {
-        order: 2;
-      }
-      .--project {
-        order: 0;
-      }
+      justify-content: space-between;
       .nav__item:hover {
         font-size: 2rem;
       }
@@ -84,6 +75,9 @@
     gap: 20px;
     .projects__figure {
       width: 30%;
+      .projects__heading {
+        font-size: 2rem;
+      }
       &:hover {
         .figcaption {
           padding: 10px;
@@ -121,6 +115,9 @@
     }
     .footer__link {
       font-size: 2rem;
+    }
+    .footer__email {
+      font-size: 1.5rem;
     }
   }
 }

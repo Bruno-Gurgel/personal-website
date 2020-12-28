@@ -22,7 +22,6 @@ body {
       text-decoration: none;
       color: $primary-color;
       text-decoration: underline;
-      cursor: pointer;
     }
   }
 }
@@ -31,7 +30,8 @@ body {
   text-align: center;
   .banner__heading {
     color: #90e0ef;
-    font-size: 2rem;
+    font-size: 1.7rem;
+    padding: 5px;
     .banner__underlined {
       text-decoration: underline;
       text-decoration-color: #ff0000;
@@ -53,6 +53,7 @@ body {
   text-align: center;
   .projects__heading {
     color: #34383c;
+    font-size: 1.5rem;
   }
 
   .projects__text {

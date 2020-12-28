@@ -13,7 +13,6 @@ body {
 
 .nav {
   grid-area: nav;
-  border-bottom: 2px dotted #ffef96;
   .nav__list {
     display: flex;
     flex-flow: column nowrap;
@@ -23,12 +22,6 @@ body {
     gap: 5px;
     margin: 5px 0px;
     padding: 0px;
-  }
-  .nav__submenu {
-    display: none;
-  }
-  .visible {
-    display: block;
   }
 }
 
@@ -51,6 +44,7 @@ body {
     margin: 20px 0;
     width: 80%;
     overflow: hidden;
+    background-color: $primary-color;
     .figcaption {
       display: none;
     }
