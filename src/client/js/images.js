@@ -1,5 +1,5 @@
 import blogImage from '../img/blog.jpg';
-import landingPageImage from '../img/landing-page.png';
+import landingPageImage from '../img/landing-page.jpg';
 import weatherImage from '../img/weather.jpg';
 import newsImage from '../img/news.jpg';
 import travelImage from '../img/travel.jpg';
