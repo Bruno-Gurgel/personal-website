@@ -24,6 +24,12 @@ body {
     margin: 5px 0px;
     padding: 0px;
   }
+  .nav__submenu {
+    display: none;
+  }
+  .visible {
+    display: block;
+  }
 }
 
 .main {
