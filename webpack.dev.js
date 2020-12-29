@@ -6,7 +6,9 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: './src/client/index.js',
+  entry: {
+    index: './src/client/index.js',
+  },
   devtool: 'source-map',
   devServer: {
     contentBase: './dist',
@@ -50,7 +52,13 @@ module.exports = {
   plugins: [
     new HtmlWebPackPlugin({
       template: './src/client/views/index.html',
-      filename: './index.html',
+      chunks: ['index'],
+      filename: 'index.html',
+    }),
+    new HtmlWebPackPlugin({
+      template: './src/client/views/about.html',
+      chunks: ['index'],
+      filename: 'about.html',
     }),
     new CleanWebpackPlugin({
       // Simulate the removal of files
