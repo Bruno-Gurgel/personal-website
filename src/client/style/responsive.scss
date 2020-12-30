@@ -43,6 +43,18 @@
       }
     }
   }
+  // About page
+  .about__heading {
+    font-size: 5rem;
+  }
+
+  .about__text {
+    padding: 0 50px;
+    font-size: 1.7rem;
+    .about__welcome {
+      font-size: 2.2rem;
+    }
+  }
 }
 
 // Desktop layout
@@ -118,6 +130,18 @@
     }
     .footer__email {
       font-size: 1.5rem;
+    }
+  }
+  // About page
+  .about__heading {
+    font-size: 6rem;
+  }
+
+  .about__text {
+    padding: 0 50px;
+    font-size: 2rem;
+    .about__welcome {
+      font-size: 2.5rem;
     }
   }
 }

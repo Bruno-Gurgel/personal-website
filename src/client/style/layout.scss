@@ -78,3 +78,30 @@ body {
 .footer {
   grid-area: footer;
 }
+
+// About page
+.about__heading {
+  text-align: center;
+  font-size: 4rem;
+}
+
+.about__intro {
+  color: #90e0ef;
+  .about__name {
+    color: #ffff00;
+  }
+}
+
+.about__text {
+  text-align: justify;
+  padding: 0 15px;
+  font-size: 1.5rem;
+  line-height: 1.6;
+  .about__welcome {
+    color: #ffff00;
+    text-align: center;
+    display: block;
+    text-decoration: underline;
+    font-size: 2rem;
+  }
+}
