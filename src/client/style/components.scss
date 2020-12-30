@@ -18,16 +18,29 @@
 
 .projects__repo {
   background-color: #90e0ef;
-  display: block;
   margin: 0px auto;
   width: 35%;
   height: 25px;
   cursor: pointer;
+  display: block;
   font-weight: 400;
+  color: #000000;
+  font-weight: bold;
   &:hover {
     text-decoration: underline;
     background-color: #64dfdf;
   }
+}
+
+.button {
+  text-decoration: none;
+  padding: 5px 25px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  border: 1px inset #000000;
+  border-radius: 25%;
 }
 
 .projects__button {
@@ -35,7 +48,6 @@
   width: 60%;
   height: 30px;
   margin: 10px auto;
-  border-radius: 25%;
   background-color: #302b63;
   color: $primary-color;
   cursor: pointer;
