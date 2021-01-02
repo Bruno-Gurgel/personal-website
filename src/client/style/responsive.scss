@@ -18,28 +18,26 @@
     gap: 20px;
     .projects__figure {
       width: 45%;
-      &:hover {
-        .figcaption {
-          padding: 10px;
-        }
-        .projects__heading {
-          font-size: 2.5rem;
-        }
-        .projects__text {
-          font-size: 1.5rem;
-        }
-        .projects__repo {
-          width: 30%;
-          font-size: 1rem;
-          margin-bottom: 30px;
-          height: 25px;
-        }
-        .projects__button {
-          display: block;
-          width: 60%;
-          height: 50px;
-          font-size: 1.8rem;
-        }
+      .figcaption {
+        padding: 10px;
+      }
+      .projects__heading {
+        font-size: 2.5rem;
+      }
+      .projects__text {
+        font-size: 1.5rem;
+      }
+      .projects__repo {
+        width: 30%;
+        font-size: 1rem;
+        margin-bottom: 30px;
+        height: 25px;
+      }
+      .projects__button {
+        display: block;
+        width: 60%;
+        height: 50px;
+        font-size: 1.8rem;
       }
     }
   }
@@ -87,11 +85,29 @@
     gap: 20px;
     .projects__figure {
       width: 30%;
+      padding: 0px;
       .projects__heading {
         font-size: 2rem;
       }
-      &:hover {
+      .figcaption {
+        display: none;
+      }
+      &.--travel,
+      &.--npl,
+      &.--weather,
+      &.--landing,
+      &.--blog {
+        background-color: #c8cdd2;
+      }
+      // Cards will have hover effect only on desktop view.
+      &:hover,
+      &:focus {
+        transition: all 1s ease;
+        .projects__image {
+          display: none;
+        }
         .figcaption {
+          display: block;
           padding: 10px;
         }
         .projects__heading {
@@ -99,6 +115,9 @@
         }
         .projects__text {
           font-size: 1.5rem;
+        }
+        .projects__link {
+          font-size: 1rem;
         }
         .projects__repo {
           width: 35%;
@@ -117,6 +136,21 @@
           &:hover {
             font-size: 2.2rem;
           }
+        }
+        &.--travel {
+          background-color: #ff7b25;
+        }
+        &.--npl {
+          background-color: #e6e2d3;
+        }
+        &.--weather {
+          background-color: #ffcc5c;
+        }
+        &.--landing {
+          background-color: #eea29a;
+        }
+        &.--blog {
+          background-color: #e0e2e4;
         }
       }
     }

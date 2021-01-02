@@ -51,6 +51,7 @@ body {
 
 .projects__figure {
   text-align: center;
+  padding: 10px;
   .projects__heading {
     color: #34383c;
     font-size: 1.5rem;
@@ -62,20 +63,14 @@ body {
   .projects__link {
     text-decoration: none;
   }
-  &:hover {
-    background-color: orange;
-    .projects__image {
-      display: none;
-    }
-    .projects__heading {
-      font-size: 2rem;
-    }
-    .projects__text {
-      font-size: 1.2rem;
-    }
-    .projects__link {
-      font-size: 1rem;
-    }
+  .projects__heading {
+    font-size: 2rem;
+  }
+  .projects__text {
+    font-size: 1.2rem;
+  }
+  .projects__link {
+    font-size: 1rem;
   }
 }
 
@@ -89,5 +84,8 @@ body {
   .footer__link {
     color: $primary-color;
     font-size: 1.5rem;
+  }
+  .footer__email {
+    color: $primary-color;
   }
 }

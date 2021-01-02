@@ -41,6 +41,9 @@
   outline: none;
   border: 1px inset #000000;
   border-radius: 25%;
+  &:focus {
+    background-color: #ff6666;
+  }
 }
 
 .projects__button {

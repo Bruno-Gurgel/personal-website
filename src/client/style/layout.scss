@@ -22,6 +22,11 @@ body {
     gap: 5px;
     margin: 5px 0px;
     padding: 0px;
+    .nav__item {
+      &:focus {
+        background-color: #ff6666;
+      }
+    }
   }
 }
 
@@ -40,43 +45,36 @@ body {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     border-radius: 20%;
     transition: 0.3s;
-    background-color: #c8cdd2;
     margin: 20px 0;
     width: 80%;
     overflow: hidden;
     background-color: $primary-color;
     .figcaption {
-      display: none;
+      display: block;
     }
-    &:hover {
-      transition: all 1s ease;
-      .projects__image {
-        display: none;
-      }
-      .figcaption {
-        display: block;
-      }
-      &.--travel {
-        background-color: #ff7b25;
-      }
-      &.--npl {
-        background-color: #e6e2d3;
-      }
-      &.--weather {
-        background-color: #ffcc5c;
-      }
-      &.--landing {
-        background-color: #eea29a;
-      }
-      &.--blog {
-        background-color: #e0e2e4;
-      }
+    &.--travel {
+      background-color: #ff7b25;
+    }
+    &.--npl {
+      background-color: #e6e2d3;
+    }
+    &.--weather {
+      background-color: #ffcc5c;
+    }
+    &.--landing {
+      background-color: #f1c6c1;
+    }
+    &.--blog {
+      background-color: #e0e2e4;
     }
   }
 }
 
 .footer {
   grid-area: footer;
+  .footer__link:focus {
+    background-color: #ff6666;
+  }
 }
 
 // About page
