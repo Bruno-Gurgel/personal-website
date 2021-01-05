@@ -1,7 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 const webpack = require('webpack');
 const path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
@@ -9,6 +8,7 @@ module.exports = {
   mode: 'development',
   entry: {
     index: './src/client/index.js',
+    blog: './src/client/blog.js',
   },
   devtool: 'source-map',
   devServer: {
@@ -16,7 +16,7 @@ module.exports = {
   },
   stats: 'verbose',
   output: {
-    filename: 'bundle.min.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
   },
   module: {
@@ -25,6 +25,10 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.scss$/,
@@ -63,17 +67,17 @@ module.exports = {
     }),
     new HtmlWebPackPlugin({
       template: './src/client/views/blog/blog.html',
-      chunks: ['index'],
+      chunks: ['blog'],
       filename: 'blog.html',
     }),
     new HtmlWebPackPlugin({
       template: './src/client/views/blog/blogAbout.html',
-      chunks: ['index'],
+      chunks: ['blog'],
       filename: 'aboutBlog.html',
     }),
     new HtmlWebPackPlugin({
       template: './src/client/views/blog/blogPost.html',
-      chunks: ['index'],
+      chunks: ['blog'],
       filename: 'postBlog.html',
     }),
     new CleanWebpackPlugin({
