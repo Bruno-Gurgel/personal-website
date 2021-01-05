@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 const webpack = require('webpack');
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
@@ -59,6 +60,21 @@ module.exports = {
       template: './src/client/views/about.html',
       chunks: ['index'],
       filename: 'about.html',
+    }),
+    new HtmlWebPackPlugin({
+      template: './src/client/views/blog/blog.html',
+      chunks: ['index'],
+      filename: 'blog.html',
+    }),
+    new HtmlWebPackPlugin({
+      template: './src/client/views/blog/blogAbout.html',
+      chunks: ['index'],
+      filename: 'aboutBlog.html',
+    }),
+    new HtmlWebPackPlugin({
+      template: './src/client/views/blog/blogPost.html',
+      chunks: ['index'],
+      filename: 'postBlog.html',
     }),
     new CleanWebpackPlugin({
       // Simulate the removal of files
