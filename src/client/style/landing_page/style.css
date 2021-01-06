@@ -39,6 +39,21 @@ p {
   top: 0;
 }
 
+.home__link {
+  display: inline-block;
+  text-decoration: none;
+  color: #000000;
+  font-size: 2rem;
+  border-radius: 25px;
+  padding: 5px;
+  border-bottom: 2px inset #000000;
+  margin-bottom: 20px;
+}
+
+.home__link:hover {
+  background-color: #657482;
+}
+
 .grid__container {
   display: grid;
   grid-template-columns: 1fr;
@@ -122,7 +137,8 @@ p {
   text-align: center;
   text-decoration: none;
   color: #1f2932;
-  /* margin-top: 20px; */
+  border-top: 2px inset #000000;
+  margin: 0px;
 }
 
 .page__button {
@@ -318,6 +334,10 @@ Desktop layout
 ============================
 */
 @media screen and (min-width: 901px) {
+  .home__link {
+    margin-bottom: 10px;
+  }
+
   .grid__container {
     grid-template-columns: 15% 85%;
     grid-template-rows: min-content;
