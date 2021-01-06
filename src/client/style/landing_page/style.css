@@ -1,0 +1,427 @@
+/*
+============================
+Universal layout
+============================
+*/
+
+/* Rules */
+body {
+  max-width: 100%;
+  box-sizing: border-box;
+  font-family: 'Antic Slab', serif;
+  font-size: 16px;
+  color: #1f2932;
+  background: linear-gradient(to bottom, #ffefba, #ffffff);
+  padding: 0px;
+  margin: 0px;
+}
+
+p {
+  text-align: justify;
+}
+
+/* Header */
+.active {
+  background-color: #6ea3c5;
+}
+
+.skip-link {
+  top: -50px;
+  position: absolute;
+  background-color: #ff0000;
+  left: 0px;
+  color: #ffffff;
+  padding: 8px;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+.grid__container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: min-content;
+  grid-template-areas:
+    'nav'
+    'banner'
+    'main'
+    'footer';
+  max-width: 100%;
+}
+/* .page__header */
+.navbar__menu {
+  grid-area: nav;
+  width: 100%;
+}
+
+.menu__list {
+  font-family: 'Henny Penny', cursive;
+  list-style-type: none;
+}
+
+.menu__link {
+  text-decoration: none;
+  color: #000000;
+  font-size: 1.3rem;
+  border-radius: 25px;
+  padding: 5px;
+  border-bottom: 2px inset #000000;
+}
+
+/* Creating the sandwich menu */
+.mobile__menu {
+  display: inline-block;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+  width: 2rem;
+  height: 0.3rem;
+  background-color: #333;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+/* Rotate first bar */
+.change .bar1 {
+  transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+/* Fade out the second bar */
+.change .bar2 {
+  opacity: 0;
+}
+
+/* Rotate last bar */
+.change .bar3 {
+  transform: rotate(45deg) translate(-8px, -8px);
+}
+
+/* Banner */
+.banner__hero {
+  text-align: center;
+  grid-area: banner;
+  box-shadow: 5px 5px 20px 20px #ccc;
+  margin: 15px 0;
+}
+
+.motives__item {
+  list-style-image: url(../../img/landing_page/tick-mark.svg);
+  font-weight: bold;
+}
+
+/* Main content */
+.heading__page {
+  font-family: 'Henny Penny', cursive;
+  font-size: 4rem;
+  text-align: center;
+  text-decoration: none;
+  color: #1f2932;
+  /* margin-top: 20px; */
+}
+
+.page__button {
+  border: 2px inset #000000;
+  padding: 12px;
+  margin: 20px 0;
+  font-size: 2rem;
+  background-color: #ffae0c;
+  text-align: center;
+  cursor: pointer;
+}
+
+.page__button:hover,
+.page__button:focus {
+  font-weight: bold;
+  background-color: #ffff00;
+  text-decoration: underline;
+}
+
+.introduction__text {
+  text-align: center;
+}
+
+.page__main {
+  grid-area: main;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: justify;
+  max-width: 100%;
+  padding: 0 10px 0 5px;
+  gap: 5px;
+  height: 100%;
+}
+
+.heading__section {
+  font-family: 'Henny Penny', cursive;
+  text-align: center;
+}
+
+.product__image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Setting the display to none, will change onclick with JS */
+.section__1,
+.section__2,
+.section__3,
+/* 
+    The review will only appear in this part if the user is on a desktop.
+    Otherwise, it will appear, in the section of reviews (3).  
+    */
+.quote__review {
+  display: none;
+}
+
+.section__4 {
+  text-align: center;
+  display: none;
+}
+
+/* Footer */
+.page__footer {
+  grid-area: footer;
+  width: 100%;
+  text-align: center;
+  display: block;
+}
+
+.contact {
+  text-decoration: underline;
+  color: #000000;
+  font-size: 1.2rem;
+}
+
+.contact__text {
+  text-align: center;
+}
+
+/*
+============================
+Mobile layout
+============================
+*/
+@media screen and (max-width: 599px) {
+  /* Header */
+  .menu__list {
+    display: none;
+    overflow: hidden;
+    position: relative;
+    padding: 0px;
+  }
+
+  .menu__link {
+    display: block;
+    margin-bottom: 10px;
+    padding: 12px;
+    font-size: 1.3rem;
+    border-radius: 25px;
+    border-bottom: 2px inset #000000;
+    width: 50%;
+  }
+
+  /* Banner */
+  .banner__hero {
+    box-shadow: 3px 5px 20px 10px #ccc;
+    margin: 20px 0;
+  }
+
+  .motives__list__banner {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    font-size: 1.3rem;
+  }
+
+  .motives__item::marker {
+    font-size: 4rem;
+  }
+
+  .introduction__text {
+    font-size: 1.2rem;
+  }
+
+  /* Main content */
+  .product__image {
+    width: 100%;
+  }
+}
+
+/*
+============================ 
+Tablet layout 
+============================
+*/
+@media screen and (min-width: 600px) and (max-width: 900px) {
+  /* Header */
+  .menu__list {
+    display: none;
+    overflow: hidden;
+    position: relative;
+    padding: 0px;
+  }
+
+  .menu__link {
+    display: block;
+    margin-bottom: 10px;
+    padding: 12px;
+    font-size: 1.3rem;
+    border-radius: 25px;
+    border-bottom: 2px inset #000000;
+    width: 50%;
+  }
+
+  /* Banner */
+  .banner__hero {
+    box-shadow: 3px 5px 20px 10px #ccc;
+    margin: 20px 0;
+  }
+
+  .motives__list__banner {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+  }
+
+  .motives__item {
+    font-size: 1.6rem;
+  }
+
+  .motives__item::marker {
+    font-size: 4rem;
+  }
+
+  .page__button {
+    font-size: 2.5rem;
+  }
+
+  /* Main content */
+  .product__image {
+    width: 80%;
+  }
+}
+
+/*
+============================
+Desktop layout
+============================
+*/
+@media screen and (min-width: 901px) {
+  .grid__container {
+    grid-template-columns: 15% 85%;
+    grid-template-rows: min-content;
+    grid-template-areas:
+      'nav banner'
+      'nav main'
+      'nav footer';
+    max-width: 100%;
+  }
+
+  /* Header */
+  .mobile__menu,
+  .change .bar1,
+  .change .bar2,
+  .change .bar3 {
+    display: none;
+  }
+
+  .navbar__menu {
+    height: 100vh;
+    position: fixed;
+    width: 15%;
+    top: 0;
+    height: 100vh;
+    z-index: 1;
+    background-color: #ffc85a;
+    overflow: hidden;
+    transition: width 0.3s ease;
+    cursor: pointer;
+    box-shadow: 10px 1px 10px 5px #ccc;
+  }
+
+  .menu__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100vh;
+    font-family: 'Henny Penny', cursive;
+    list-style-type: none;
+  }
+
+  .menu__link {
+    text-decoration: none;
+    color: #000000;
+    font-size: 1.3rem;
+    border-radius: 25px;
+    padding: 5px;
+    border-bottom: 2px inset #000000;
+  }
+
+  .menu__link:hover,
+  .menu__link:focus {
+    background-color: #657482;
+  }
+
+  /* Banner */
+
+  .banner__hero {
+    margin: 0px;
+  }
+
+  .heading__page {
+    margin-top: 5px;
+  }
+
+  .banner__center {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .motives__list__banner {
+    text-align: left;
+    width: 20%;
+    margin-left: auto;
+  }
+
+  .motives__item {
+    font-size: 2rem;
+  }
+
+  .motives__item::marker {
+    font-size: 4rem;
+  }
+
+  .quote__review {
+    display: block;
+    margin-right: auto;
+    font-style: italic;
+    width: 40%;
+    height: 100%;
+  }
+
+  .introduction__text {
+    font-size: 1.5rem;
+  }
+
+  /* Main content */
+  .section__box {
+    padding: 50px;
+  }
+
+  .product__image {
+    width: 50%;
+    margin-bottom: 30px;
+  }
+}
