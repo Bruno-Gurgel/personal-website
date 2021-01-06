@@ -24,7 +24,7 @@ body {
     padding: 0px;
     .nav__item {
       &:focus {
-        background-color: #ff6666;
+        background-color: hsl(0, 100%, 70%);
       }
     }
   }
@@ -53,19 +53,19 @@ body {
       display: block;
     }
     &.--travel {
-      background-color: #ff7b25;
+      background-color: hsl(24, 100%, 57%);
     }
     &.--npl {
-      background-color: #e6e2d3;
+      background-color: hsl(47, 28%, 86%);
     }
     &.--weather {
-      background-color: #ffcc5c;
+      background-color: hsl(41, 100%, 68%);
     }
     &.--landing {
-      background-color: #f1c6c1;
+      background-color: hsl(6, 63%, 85%);
     }
     &.--blog {
-      background-color: #e0e2e4;
+      background-color: hsl(210, 7%, 89%);
     }
   }
 }
@@ -73,7 +73,7 @@ body {
 .footer {
   grid-area: footer;
   .footer__link:focus {
-    background-color: #ff6666;
+    background-color: hsl(0, 100%, 70%);
   }
 }
 
@@ -84,9 +84,9 @@ body {
 }
 
 .about__intro {
-  color: #90e0ef;
+  color: hsl(189, 75%, 75%);
   .about__name {
-    color: #ffff00;
+    color: hsl(60, 100%, 50%);
   }
 }
 
@@ -96,7 +96,7 @@ body {
   font-size: 1.5rem;
   line-height: 1.6;
   .about__welcome {
-    color: #ffff00;
+    color: hsl(60, 100%, 50%);
     text-align: center;
     display: block;
     text-decoration: underline;

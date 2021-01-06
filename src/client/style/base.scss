@@ -1,6 +1,6 @@
 // Variables
 $font: 'Dosis', sans-serif;
-$primary-color: #ffe9e3;
+$primary-color: hsl(13, 100%, 95%);
 
 body {
   font-size: 16px;
@@ -29,15 +29,15 @@ body {
 .banner {
   text-align: center;
   .banner__heading {
-    color: #90e0ef;
+    color: hsl(189, 75%, 75%);
     font-size: 1.7rem;
     padding: 5px;
     .banner__underlined {
       text-decoration: underline;
-      text-decoration-color: #ff0000;
+      text-decoration-color: hsl(0, 100%, 50%);
     }
     .banner__passionate {
-      color: #ff0000;
+      color: hsl(0, 100%, 50%);
     }
   }
   .banner__intro {
@@ -45,7 +45,7 @@ body {
     margin-top: 50px;
     margin-bottom: 2px;
     text-decoration: underline;
-    color: #90e0ef;
+    color: hsl(189, 75%, 75%);
   }
 }
 
@@ -53,12 +53,12 @@ body {
   text-align: center;
   padding: 10px;
   .projects__heading {
-    color: #34383c;
+    color: hsl(210, 7%, 22%);
     font-size: 1.5rem;
   }
 
   .projects__text {
-    color: #242a2f;
+    color: hsl(207, 13%, 16%);
   }
   .projects__link {
     text-decoration: none;

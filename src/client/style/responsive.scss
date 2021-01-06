@@ -97,7 +97,7 @@
       &.--weather,
       &.--landing,
       &.--blog {
-        background-color: #c8cdd2;
+        background-color: hsl(210, 10%, 80%);
       }
       // Cards will have hover effect only on desktop view.
       &:hover,
@@ -138,19 +138,19 @@
           }
         }
         &.--travel {
-          background-color: #ff7b25;
+          background-color: hsl(24, 100%, 57%);
         }
         &.--npl {
-          background-color: #e6e2d3;
+          background-color: hsl(47, 28%, 86%);
         }
         &.--weather {
-          background-color: #ffcc5c;
+          background-color: hsl(41, 100%, 68%);
         }
         &.--landing {
-          background-color: #eea29a;
+          background-color: hsl(6, 63%, 85%);
         }
         &.--blog {
-          background-color: #e0e2e4;
+          background-color: hsl(210, 7%, 89%);
         }
       }
     }
