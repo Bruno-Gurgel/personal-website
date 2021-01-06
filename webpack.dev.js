@@ -9,6 +9,7 @@ module.exports = {
   entry: {
     index: './src/client/index.js',
     blog: './src/client/blog.js',
+    landingPage: './src/client/landingPage.js',
   },
   devtool: 'source-map',
   devServer: {
@@ -79,6 +80,11 @@ module.exports = {
       template: './src/client/views/blog/blogPost.html',
       chunks: ['blog'],
       filename: 'postBlog.html',
+    }),
+    new HtmlWebPackPlugin({
+      template: './src/client/views/landing_page/landingPage.html',
+      chunks: ['landingPage'],
+      filename: 'landingPage.html',
     }),
     new CleanWebpackPlugin({
       // Simulate the removal of files
