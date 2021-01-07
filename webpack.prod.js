@@ -10,8 +10,17 @@ const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 
 module.exports = {
   mode: 'production',
-  entry: './src/client/index.js',
+  entry: {
+    index: './src/client/index.js',
+    blog: './src/client/blog.js',
+    landingPage: './src/client/landingPage.js',
+    weatherApp: './src/client/weatherApp.js',
+  },
   devtool: 'source-map',
+  output: {
+    filename: '[name].js',
+    path: path.resolve(__dirname, 'dist'),
+  },
   optimization: {
     minimizer: [new OptimizeCSSAssetsPlugin({})],
   },
@@ -21,6 +30,10 @@ module.exports = {
         test: '/.js$/',
         exclude: /node_modules/,
         loader: 'babel-loader',
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.scss$/,
@@ -61,6 +74,31 @@ module.exports = {
       template: './src/client/views/about.html',
       chunks: ['index'],
       filename: 'about.html',
+    }),
+    new HtmlWebPackPlugin({
+      template: './src/client/views/blog/blog.html',
+      chunks: ['blog'],
+      filename: 'blog.html',
+    }),
+    new HtmlWebPackPlugin({
+      template: './src/client/views/blog/blogAbout.html',
+      chunks: ['blog'],
+      filename: 'aboutBlog.html',
+    }),
+    new HtmlWebPackPlugin({
+      template: './src/client/views/blog/blogPost.html',
+      chunks: ['blog'],
+      filename: 'postBlog.html',
+    }),
+    new HtmlWebPackPlugin({
+      template: './src/client/views/landing_page/landingPage.html',
+      chunks: ['landingPage'],
+      filename: 'landingPage.html',
+    }),
+    new HtmlWebPackPlugin({
+      template: './src/client/views/weather_app/weatherApp.html',
+      chunks: ['weatherApp'],
+      filename: 'weatherApp.html',
     }),
     new MiniCssExtractPlugin({
       filename: '[name].css',
