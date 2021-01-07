@@ -1,0 +1,179 @@
+/* Importing font */
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Syne+Mono&display=swap');
+
+/* Mobile layout */
+body {
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Abel', sans-serif;
+  background-image: linear-gradient(to bottom right, #4e54c8, #8f94fb);
+  background-size: contain;
+  font-size: 16px;
+}
+
+/* Mobile first */
+.grid__container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2fr;
+  grid-template-areas:
+    'main'
+    'recent';
+}
+
+.top__main {
+  grid-area: main;
+  text-align: center;
+}
+
+.heading__top {
+  font-family: 'Syne Mono', monospace;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.zipcode {
+  font-size: 2rem;
+}
+
+.feeling {
+  margin-top: 10px;
+  font-size: 1.5rem;
+}
+
+.label {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.input {
+  height: 6rem;
+  width: 60%;
+  background-color: #f9f9fa;
+  font-size: 1.3rem;
+  color: #0a5730;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 2px 2px 4px 6px #dcbff3;
+  margin-bottom: 30px;
+  line-height: 80px;
+}
+
+.button {
+  height: 6rem;
+  width: 6rem;
+  background-color: #ff8bab;
+  border-radius: 20%;
+  cursor: pointer;
+  font-family: 'Abel', sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.button:hover {
+  background-color: #ff5483;
+  text-decoration: underline;
+}
+
+.low__main {
+  grid-area: recent;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: min-content;
+  grid-template-areas:
+    'heading'
+    'date'
+    'temp'
+    'feeling';
+  border-top: 2px dotted #000000;
+}
+
+.heading__bottom {
+  grid-area: heading;
+  font-family: 'Syne Mono', monospace;
+  text-align: center;
+}
+
+.date {
+  grid-area: date;
+}
+
+.temperature {
+  grid-area: temp;
+}
+
+.content {
+  grid-area: feeling;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+  list-style-type: none;
+}
+
+.query_item {
+  font-size: 1.5rem;
+  display: inline-block;
+}
+
+@media (min-width: 600px) and (max-width: 900px) {
+  .heading__top {
+    font-size: 4rem;
+  }
+
+  .zipcode {
+    font-size: 3rem;
+  }
+
+  .feeling {
+    font-size: 2rem;
+  }
+
+  .input {
+    font-size: 2rem;
+  }
+
+  .heading__bottom {
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 901px) {
+  .heading__top {
+    font-size: 5rem;
+    margin: 10px 0;
+  }
+
+  .zipcode {
+    font-size: 3rem;
+    margin-top: 30px;
+  }
+
+  .feeling {
+    font-size: 2rem;
+  }
+
+  .input {
+    font-size: 2rem;
+  }
+
+  .low__main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: min-content;
+    grid-template-areas:
+      'heading heading heading'
+      'date    temp    feeling';
+  }
+
+  .heading__bottom {
+    font-size: 3rem;
+  }
+}
