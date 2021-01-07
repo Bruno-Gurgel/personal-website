@@ -13,6 +13,22 @@ body {
   font-size: 16px;
 }
 
+.home__link {
+  background-color: #fdffb6;
+  display: inline-block;
+  text-decoration: none;
+  color: #000000;
+  font-size: 1.5rem;
+  border-radius: 25px;
+  padding: 5px;
+  border-bottom: 2px inset #000000;
+  margin-bottom: 20px;
+}
+
+.home__link:hover {
+  background-color: #ffff3f;
+}
+
 /* Mobile first */
 .grid__container {
   display: grid;
