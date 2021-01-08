@@ -12,27 +12,42 @@ const button = document.querySelector('.button');
 
 // Event listener to add function to existing HTML DOM element
 button.addEventListener('click', () => {
+  let apiKey = '';
+
   // Create a new date instance dynamically with JS
   const d = new Date();
   const newDate = `${d.getMonth() + 1}.${d.getDate()}.${d.getFullYear()}`;
 
   const newZip = document.getElementById('zip').value;
   const newFeeling = document.getElementById('feeling').value;
-  // Personal API Key for OpenWeatherMap API
-  const apiKey = '13f1473acdb89267f932793a8c56106a';
-  const baseUrl = `http://api.openweathermap.org/data/2.5/weather?zip=${newZip},&appid=${apiKey}&units=metric`;
-  if (newFeeling !== '' && newZip !== '') {
-    displayWeather(baseUrl).then((data) => {
-      postData('/data', {
-        date: newDate,
-        temperature: data.main.temp,
-        user_response: newFeeling,
+
+  const getApiKey = async () => {
+    const req = await fetch('http://localhost:8000/api');
+    try {
+      const data = await req.json();
+      apiKey = data.openWeatherKey;
+      return apiKey;
+    } catch (error) {
+      alert('There was an error:', error.message);
+      return false;
+    }
+  };
+
+  getApiKey().then(() => {
+    const baseUrl = `http://api.openweathermap.org/data/2.5/weather?zip=${newZip},&appid=${apiKey}&units=metric`;
+    if (newFeeling !== '' && newZip !== '') {
+      displayWeather(baseUrl).then((data) => {
+        postData('/data', {
+          date: newDate,
+          temperature: data.main.temp,
+          user_response: newFeeling,
+        });
+        updateUI();
       });
-      updateUI();
-    });
-  } else {
-    alert('Please enter Zip code and your feelings');
-  }
+    } else {
+      alert('Please enter Zip code and your feelings');
+    }
+  });
 });
 
 /* Function to GET Web API Data */
@@ -76,7 +91,7 @@ const postData = async (url = '', data = {}) => {
 
 /* Dynamically updating the UI */
 const updateUI = async () => {
-  const request = await fetch('/data');
+  const request = await fetch('/UIdata');
 
   const dateList = document.querySelector('#date_list');
   const tempList = document.querySelector('#temperature_list');
@@ -87,11 +102,12 @@ const updateUI = async () => {
 
   try {
     const allData = await request.json();
-    dateList.innerHTML = `<li class="query_item">Date: ${allData.date}</li>`;
-    tempList.innerHTML = `<li class="query_item">Temperature: ${allData.temperature.toFixed(
+    const { weatherAppData } = allData;
+    dateList.innerHTML = `<li class="query_item">Date: ${weatherAppData.date}</li>`;
+    tempList.innerHTML = `<li class="query_item">Temperature: ${weatherAppData.temperature.toFixed(
       0
     )}ºC</li>`;
-    contentList.innerHTML = `<li class="query_item">Feeling: ${allData.user_response}</li>`;
+    contentList.innerHTML = `<li class="query_item">Feeling: ${weatherAppData.user_response}</li>`;
     entryHolder.scrollIntoView({ behavior: 'smooth' });
   } catch (error) {
     console.log('There was an error:', error);
