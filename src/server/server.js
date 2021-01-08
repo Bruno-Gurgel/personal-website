@@ -1,48 +1,96 @@
-/* eslint-disable */
-
-// Setup empty JS object to act as endpoint for all routes
-const projectData = {};
-// Express to run server and routes
+const path = require('path');
 const express = require('express');
-// Start up an instance of app
-const app = express();
-/* Dependencies */
 const bodyParser = require('body-parser');
-
-/* Middleware */
-
-// Here we are configuring express to use body-parser as middle-ware.
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-// Cors for cross origin allowance
 const cors = require('cors');
+const { urlencoded } = require('body-parser');
+const dotenv = require('dotenv');
+
+dotenv.config();
+
+const app = express();
 
 app.use(cors());
+
+app.use(bodyParser.json());
+app.use(
+  urlencoded({
+    extended: true,
+  })
+);
+
 // Initialize the main project folder
 app.use(express.static('dist'));
 
-const port = 8000;
+console.log(__dirname);
+
+app.get('/', (req, res) =>
+  res.sendFile(path.resolve('src/client/views/index.html'))
+);
+
+// Empty JS object to act as endpoint for all routes
+// let dataObject = {};
+let allData = {};
+/* let aweatherAppData = {};
+let newsAnalyzerData = {};
+let travelAppData = {}; */
 
 // Spin up the server
-const server = app.listen(
-  port,
-  (callback = () => {
-    console.log(`running on localhost: ${port}`);
+const port = 8000;
+app.listen(port, () => {
+  console.log(`App is listening on port ${port}`);
+});
+
+const openWeatherAPIKey = process.env.OPENWEATHER_API_KEY;
+const meaningCloudAPIKey = process.env.MEANINGCLOUD_API_KEY;
+const weatherBitAPIKey = process.env.WEATHERBIT_API_KEY;
+const pixabayAPIKey = process.env.PIXABAY_API_KEY;
+
+// Sending the API key to the client
+app.get('/api', (req, res) =>
+  res.send({
+    openWeatherKey: openWeatherAPIKey,
+    meaningCloudKey: meaningCloudAPIKey,
+    weatherBitKey: weatherBitAPIKey, // TROCAR NO APP !!!!!!!!!!!!!!!!!!!
+    photoKey: pixabayAPIKey,
   })
 );
 
-// Callback function to complete GET '/data'
-app.get('/data', function (request, response) {
-  response.send(projectData);
+// TROCAR NO APP !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+app.post('/data', (req, res) => {
+  allData = {
+    weatherAppData: {
+      date: req.body.date,
+      temperature: req.body.temperature,
+      user_response: req.body.user_response,
+    },
+    newsAnalyzerData: {
+      agreement: req.body.agreement,
+      subjectivity: req.body.subjectivity,
+      confidence: req.body.confidence,
+      irony: req.body.irony,
+    },
+    travelAppData: {
+      city_name: req.body.city_name,
+      country_code: req.body.country_code,
+      temperature: req.body.temp,
+      app_temp: req.body.app_temp,
+      description: req.body.description,
+      photo: req.body.photo,
+    },
+  };
+  /*  dataObject = {
+    city_name: req.body.city_name,
+    country_code: req.body.country_code,
+    temperature: req.body.temp,
+    app_temp: req.body.app_temp,
+    description: req.body.description,
+    photo: req.body.photo,
+  }; */
+  console.log(allData);
+  res.send(allData);
+  // res.send(dataObject);
 });
-// Post Route
-app.post(
-  '/data',
-  (postData = (req, res) => {
-    projectData['date'] = req.body.date;
-    projectData['temperature'] = req.body.temperature;
-    projectData['user_response'] = req.body.user_response;
-    console.log(projectData);
-    res.send(projectData);
-  })
-);
+
+app.get('/UIdata', function (request, response) {
+  response.send(allData);
+});
