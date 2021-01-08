@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NPL Tool</title>
+</head>
+
+<body>
+  <div class="grid__container">
+    <header>
+      <nav>
+        <p><a class="nav__item" href="index.html"> Home</a></p>
+      </nav>
+    </header>
+
+    <main>
+      <div class="main__top">
+        <h1 class="heading__top">Natural Language Processing Web Tool</h1>
+        <form class="page__form">
+          <input class="input__text" id="name" type="text" name="input" placeholder="Put the URL here">
+          <input class="input__button" type="submit" id="submit" name="submit" value="Submit">
+        </form>
+      </div>
+      <div class="main__bottom">
+        <h2 class="heading__bottom">Form Results:</h2>
+        <ul class="results__list" id="results"></ul>
+      </div>
+    </main>
+
+    <footer>
+      <h2>Add me!</h2>
+      <p><a aria-label="Add me on GitHub" href="https://github.com/Bmg1612">Github</a></p>
+      <p><a aria-label="Add me on Linkedin" href="https://www.linkedin.com/in/bruno-gurgel/">Linkedin</a>
+      </p>
+    </footer>
+  </div>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js').then(registration => {
+          console.log('SW registered: ', registration);
+        }).catch(registrationError => {
+          console.log('SW registration failed: ', registrationError);
+        });
+      });
+    }
+  </script>
+</body>
+
+</html>

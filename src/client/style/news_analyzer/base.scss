@@ -1,0 +1,42 @@
+$font: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans',
+  Arial, sans-serif;
+$full-width: 100%;
+
+body {
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0px;
+  padding: 0px;
+  font-size: 16px;
+  background-color: #53dcd0;
+  font-family: $font;
+  p {
+    margin: 0px;
+  }
+}
+
+.grid__container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 10% 80% 10%;
+  grid-template-areas:
+    'nav'
+    'main'
+    'footer';
+  gap: 20px;
+}
+
+nav {
+  grid-area: nav;
+  width: $full-width;
+}
+
+main {
+  grid-area: main;
+  width: $full-width;
+}
+
+footer {
+  grid-area: footer;
+  width: $full-width;
+}
