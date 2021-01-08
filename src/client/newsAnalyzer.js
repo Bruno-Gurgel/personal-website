@@ -1,6 +1,3 @@
-/* import { checkForURL } from './js/urlChecker';
-import { handleSubmit } from './js/formHandler'; */
-
 import './style/news_analyzer/base.scss';
 import './style/news_analyzer/form.scss';
 import './style/news_analyzer/footer.scss';
@@ -34,10 +31,9 @@ document.addEventListener('DOMContentLoaded', function () {
       if (checkForURL(formText)) {
         console.log('::: Form Submitted :::');
         getApiKey()
-          .then(() => (apiKey = data.key))
           .then(() => getTextAnalysis(baseUrl, apiKey, formText))
           .then((apiResponse) => {
-            postData('/addText', {
+            postData('/data', {
               agreement: apiResponse.agreement,
               subjectivity: apiResponse.subjectivity,
               confidence: apiResponse.confidence,
@@ -50,10 +46,11 @@ document.addEventListener('DOMContentLoaded', function () {
       }
 
       async function getApiKey() {
-        const req = await fetch('http://localhost:8081/api');
+        const req = await fetch('http://localhost:8000/api');
         try {
           data = await req.json();
-          return data;
+          apiKey = data.meaningCloudKey;
+          return apiKey;
         } catch (error) {
           alert('There was an error:', error.message);
           return false;
@@ -96,17 +93,18 @@ document.addEventListener('DOMContentLoaded', function () {
       }
 
       async function updateUI() {
-        const req = await fetch('/all');
+        const req = await fetch('/UIdata');
         const results = document.getElementById('results');
 
         try {
-          const textData = await req.json();
+          const allData = await req.json();
+          const { newsAnalyzerData } = allData;
           results.innerHTML = `
           <li class="results__item"><span class="api__title">URL:</span> ${formText}</li>
-          <li class="results__item"><span class="api__title">Agreement:</span> ${textData.agreement};</li>
-          <li class="results__item"><span class="api__title">Subjectivity:</span> ${textData.subjectivity};</li>
-          <li class="results__item"><span class="api__title">Confidence:</span> ${textData.confidence}%;</li>
-          <li class="results__item"><span class="api__title">Irony:</span> ${textData.irony}.</li>`;
+          <li class="results__item"><span class="api__title">Agreement:</span> ${newsAnalyzerData.agreement};</li>
+          <li class="results__item"><span class="api__title">Subjectivity:</span> ${newsAnalyzerData.subjectivity};</li>
+          <li class="results__item"><span class="api__title">Confidence:</span> ${newsAnalyzerData.confidence}%;</li>
+          <li class="results__item"><span class="api__title">Irony:</span> ${newsAnalyzerData.irony}.</li>`;
           results.scrollIntoView({ behavior: 'smooth' });
         } catch (error) {
           alert('There was an error:', error.message);
