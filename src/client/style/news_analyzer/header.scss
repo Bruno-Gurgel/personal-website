@@ -3,15 +3,24 @@ header {
   justify-content: space-between;
   text-align: center;
   font-size: 3rem;
-  border-bottom: 2px dotted #000000;
   margin-bottom: 10px;
   padding: 0px;
-}
+  nav {
+    .home__link {
+      display: inline-block;
+      text-decoration: none;
+      color: #000000;
+      font-size: 1.5rem;
+      border-radius: 25px;
+      padding: 5px;
+      border-bottom: 2px inset #000000;
+      margin-bottom: 20px;
+    }
 
-.nav__item {
-  text-decoration: none;
-  color: #000000;
-  cursor: pointer;
+    .home__link:hover {
+      background-color: #ffff3f;
+    }
+  }
 }
 
 .heading__top {
