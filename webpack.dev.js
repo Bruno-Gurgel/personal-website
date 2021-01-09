@@ -12,6 +12,7 @@ module.exports = {
     landingPage: './src/client/landingPage.js',
     weatherApp: './src/client/weatherApp.js',
     newsAnalyzer: './src/client/newsAnalyzer.js',
+    travelApp: './src/client/travelApp.js',
   },
   devtool: 'source-map',
   devServer: {
@@ -97,6 +98,11 @@ module.exports = {
       template: './src/client/views/news_analyzer/newsAnalyzer.html',
       chunks: ['newsAnalyzer'],
       filename: 'newsAnalyzer.html',
+    }),
+    new HtmlWebPackPlugin({
+      template: './src/client/views/travel_app/travelApp.html',
+      chunks: ['travelApp'],
+      filename: 'travelApp.html',
     }),
     new CleanWebpackPlugin({
       // Simulate the removal of files
