@@ -1,0 +1,166 @@
+// Variables
+$primary-font: 'Open Sans Condensed', sans-serif;
+$heading-font: 'Pacifico', cursive;
+$primary-color: #1f2932;
+
+//Mixins for @media purposes
+@mixin for-phone-only {
+  @media screen and (max-width: 599px) {
+    @content;
+  }
+}
+
+@mixin for-tablet-only {
+  @media screen and (min-width: 600px) and (max-width: 900px) {
+    @content;
+  }
+}
+
+@mixin for-desktop-only {
+  @media screen and (min-width: 901px) {
+    @content;
+  }
+}
+
+@mixin for-printing-only {
+  @media print {
+    @content;
+  }
+}
+
+// Placeholders
+%form {
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 20px;
+}
+%input {
+  display: block;
+  text-align: center;
+  margin: 15px auto;
+  height: 30px;
+  border: 0px;
+  background-color: #2e3d49;
+  text-align: center;
+  color: #abe9ca;
+  &::placeholder {
+    color: #abe9ca;
+    opacity: 0.5;
+  }
+}
+
+.home__link {
+  background-color: #fdffb6;
+  display: inline-block;
+  text-decoration: none;
+  color: #000000;
+  font-size: 1.5rem;
+  border-radius: 25px;
+  padding: 5px;
+  border-bottom: 2px inset #000000;
+  margin-bottom: 20px;
+}
+
+.home__link:hover {
+  background-color: #ffff3f;
+}
+
+body {
+  font-family: $primary-font;
+  color: $primary-color;
+  font-size: 16px;
+}
+
+header {
+  p {
+    text-align: center;
+    font-size: 2.5rem;
+    a {
+      color: $primary-color;
+    }
+    @include for-phone-only {
+      font-size: 2rem;
+    }
+  }
+}
+
+main {
+  .main__form {
+    h1 {
+      font-family: $heading-font;
+      text-align: center;
+      font-size: 5rem;
+      text-decoration: underline;
+      @include for-phone-only {
+        font-size: 4rem;
+      }
+    }
+  }
+  .main__results {
+    h2 {
+      display: block;
+      text-align: center;
+      font-family: $heading-font;
+      font-size: 3rem;
+      text-decoration: underline;
+      margin: 0px;
+      @include for-phone-only {
+        font-size: 2.2rem;
+      }
+    }
+    .results__text {
+      font-size: 1.5rem;
+      border-left: 2px inset #ccc;
+      a {
+        font-size: 1rem;
+        font-style: italic;
+      }
+      @include for-phone-only {
+        font-size: 1.3rem;
+        border-top: 2px inset #ccc;
+        border-left: 0px;
+        margin-top: 10px;
+        br {
+          display: none;
+        }
+      }
+      @include for-tablet-only {
+        border-top: 2px inset #ccc;
+        border-left: 0px;
+        margin-top: 10px;
+      }
+      h3,
+      .toDo__header,
+      ul {
+        display: none;
+      }
+
+      @include for-desktop-only {
+        h3 {
+          display: block;
+          font-family: $heading-font;
+          text-decoration: underline;
+        }
+        .toDo__header,
+        ul {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+footer {
+  text-align: center;
+  border-top: 2px inset #ccc;
+  h2 {
+    font-family: $heading-font;
+    font-size: 2rem;
+    text-decoration: underline;
+    margin: 0 0 10px 0;
+  }
+  a {
+    color: $primary-color;
+    font-size: 1.5rem;
+  }
+}
