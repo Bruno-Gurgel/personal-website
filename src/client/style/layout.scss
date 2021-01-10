@@ -51,6 +51,10 @@ body {
     background-color: $primary-color;
     .figcaption {
       display: block;
+      .languages__text {
+        background-color: hsl(120, 2%, 20%);
+        padding: 10px;
+      }
     }
     &.--travel {
       background-color: hsl(24, 100%, 57%);

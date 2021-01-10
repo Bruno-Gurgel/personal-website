@@ -60,6 +60,9 @@ body {
   .projects__text {
     color: hsl(207, 13%, 16%);
   }
+  .languages__text {
+    color: $primary-color;
+  }
   .projects__link {
     text-decoration: none;
   }

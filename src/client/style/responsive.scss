@@ -116,6 +116,9 @@
         .projects__text {
           font-size: 1.5rem;
         }
+        .languages__text {
+          font-size: 1.3rem;
+        }
         .projects__link {
           font-size: 1rem;
         }
@@ -138,7 +141,7 @@
           }
         }
         &.--travel {
-          background-color: hsl(24, 100%, 57%);
+          background-color: hsl(24, 100%, 65%);
         }
         &.--npl {
           background-color: hsl(47, 28%, 86%);
