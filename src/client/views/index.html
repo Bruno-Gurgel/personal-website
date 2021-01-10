@@ -105,6 +105,17 @@
       <p><a href="mailto:bmg1612@gmail.com" class="footer__email footer__link">E-mail: bmg1612@gmail.com</a></p>
     </footer>
   </div>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js').then(registration => {
+          console.log('SW registered: ', registration);
+        }).catch(registrationError => {
+          console.log('SW registration failed: ', registrationError);
+        });
+      });
+    }
+  </script>
 </body>
 
 </html>
