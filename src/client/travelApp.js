@@ -288,7 +288,7 @@ document.addEventListener('DOMContentLoaded', async () => {
      * @returns {object} The object containing the desired latitude and longitude.
      */
     async geonamesApi() {
-      const url = `http://api.geonames.org/searchJSON?q=${model.input.location}&maxRows=1&username=bmg1612`;
+      const url = `https://secure.geonames.org/searchJSON?q=${model.input.location}&maxRows=1&username=bmg1612`;
       const req = await fetch(url);
       try {
         const data = await req.json();
@@ -312,7 +312,8 @@ document.addEventListener('DOMContentLoaded', async () => {
      */
     async weatherbitApi() {
       // Getting API key from the server
-      const req = await fetch('http://localhost:8000/api');
+      const req = await fetch('/api');
+      // const req = await fetch('http://localhost:8000/api');
       try {
         const data = await req.json();
         model.apiData.apiKey = data.weatherBitKey;
@@ -400,7 +401,8 @@ document.addEventListener('DOMContentLoaded', async () => {
      */
     async pixabayApi() {
       // Getting API key from the server
-      const req = await fetch('http://localhost:8000/api');
+      // const req = await fetch('http://localhost:8000/api');
+      const req = await fetch('/api');
       try {
         const data = await req.json();
         model.apiData.apiKey = data.photoKey;
