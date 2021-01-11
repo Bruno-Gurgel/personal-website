@@ -313,7 +313,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     async weatherbitApi() {
       // Getting API key from the server
       const req = await fetch('/api');
-      // const req = await fetch('http://localhost:8000/api');
       try {
         const data = await req.json();
         model.apiData.apiKey = data.weatherBitKey;

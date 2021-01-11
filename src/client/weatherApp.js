@@ -22,11 +22,9 @@ button.addEventListener('click', () => {
   const newFeeling = document.getElementById('feeling').value;
 
   const getApiKey = async () => {
-    // const req = await fetch('http://localhost:8000/api');
     const req = await fetch('/api');
     try {
       const data = await req.json();
-      console.log(data);
       apiKey = data.openWeatherKey;
       return apiKey;
     } catch (error) {

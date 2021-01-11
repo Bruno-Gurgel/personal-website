@@ -28,11 +28,7 @@ app.get('/', (req, res) =>
 );
 
 // Empty JS object to act as endpoint for all routes
-// let dataObject = {};
 let allData = {};
-/* let aweatherAppData = {};
-let newsAnalyzerData = {};
-let travelAppData = {}; */
 
 // Spin up the server
 const port = 8000;
@@ -77,17 +73,8 @@ app.post('/data', (req, res) => {
       photo: req.body.photo,
     },
   };
-  /*  dataObject = {
-    city_name: req.body.city_name,
-    country_code: req.body.country_code,
-    temperature: req.body.temp,
-    app_temp: req.body.app_temp,
-    description: req.body.description,
-    photo: req.body.photo,
-  }; */
   console.log(allData);
   res.send(allData);
-  // res.send(dataObject);
 });
 
 app.get('/UIdata', function (request, response) {

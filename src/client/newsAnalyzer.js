@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
 
       async function getApiKey() {
-        const req = await fetch('http://localhost:8000/api');
+        const req = await fetch('/api');
         try {
           data = await req.json();
           apiKey = data.meaningCloudKey;
