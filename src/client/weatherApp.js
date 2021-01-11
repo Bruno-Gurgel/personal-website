@@ -26,6 +26,7 @@ button.addEventListener('click', () => {
     const req = await fetch('/api');
     try {
       const data = await req.json();
+      console.log(data);
       apiKey = data.openWeatherKey;
       return apiKey;
     } catch (error) {
