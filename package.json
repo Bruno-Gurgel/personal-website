@@ -7,7 +7,7 @@
     "test": "jest",
     "start": "node src/server/server.js",
     "build-dev": "webpack serve  --open Chrome --config webpack.dev.js",
-    "build-prod": "webpack --config webpack.prod.js"
+    "build": "webpack --config webpack.prod.js"
   },
   "repository": {
     "type": "git",
