@@ -35,7 +35,7 @@ button.addEventListener('click', () => {
   };
 
   getApiKey().then(() => {
-    const baseUrl = `http://api.openweathermap.org/data/2.5/weather?zip=${newZip},&appid=${apiKey}&units=metric`;
+    const baseUrl = `https://api.openweathermap.org/data/2.5/weather?zip=${newZip},&appid=${apiKey}&units=metric`;
     if (newFeeling !== '' && newZip !== '') {
       displayWeather(baseUrl).then((data) => {
         postData('/data', {
