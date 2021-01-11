@@ -3,9 +3,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const { urlencoded } = require('body-parser');
-const dotenv = require('dotenv');
+/* const dotenv = require('dotenv');
 
-dotenv.config();
+dotenv.config(); */
 
 const app = express();
 
@@ -50,12 +50,11 @@ app.get('/api', (req, res) =>
   res.send({
     openWeatherKey: openWeatherAPIKey,
     meaningCloudKey: meaningCloudAPIKey,
-    weatherBitKey: weatherBitAPIKey, // TROCAR NO APP !!!!!!!!!!!!!!!!!!!
+    weatherBitKey: weatherBitAPIKey,
     photoKey: pixabayAPIKey,
   })
 );
 
-// TROCAR NO APP !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 app.post('/data', (req, res) => {
   allData = {
     weatherAppData: {
