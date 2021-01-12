@@ -1,8 +1,8 @@
-import blogImage from '../img/blog.jpg';
-import landingPageImage from '../img/landing-page.jpg';
-import weatherImage from '../img/weather.jpg';
-import newsImage from '../img/news.jpg';
-import travelImage from '../img/travel.jpg';
+import blogImage from '../img/blog.webp';
+import landingPageImage from '../img/landing-page.webp';
+import weatherImage from '../img/weather.webp';
+import newsImage from '../img/news.webp';
+import travelImage from '../img/travel.webp';
 
 const loadImages = document.addEventListener('DOMContentLoaded', () => {
   const useImage = (id, alias, caption) => {

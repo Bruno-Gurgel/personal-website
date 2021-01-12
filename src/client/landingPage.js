@@ -4,7 +4,7 @@
 import './style/landing_page/style.css';
 
 // Importing image
-import productImage from './img/landing_page/product.jpg';
+import productImage from './img/landing_page/product.webp';
 
 const product = document.querySelector('.product__image');
 product.src = productImage;
