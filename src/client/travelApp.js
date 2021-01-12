@@ -353,22 +353,40 @@ document.addEventListener('DOMContentLoaded', async () => {
            * It will fetch the weather from the same date last year
            */
         } else if (model.input.startDate > model.dates.twoWeeksFromNow) {
-          const url = `https://api.weatherbit.io/v2.0/history/hourly?lat=${model.apiData.latitude}&lon=${model.apiData.longitude}&start_date=${model.dates.lastYearStartDate}&end_date=${model.dates.lastYearEndDate}&key=${model.apiData.apiKey}`;
-          const res = await fetch(url);
-          model.apiObjects.apiResponse = await res.json();
-          console.log('::: Fetched data from Weatherbit API :::');
-          // Getting only the data that I will use in the new object
-          model.apiObjects.weatherResponse = {
-            city_name: model.apiObjects.apiResponse.city_name,
-            country_code: model.apiObjects.apiResponse.country_code,
-            temp: model.apiObjects.apiResponse.data.temp,
-            app_temp: model.apiObjects.apiResponse.data.app_temp,
-            weather: {
-              description:
-                model.apiObjects.apiResponse.data[8].weather.description,
-            },
-          };
-          return model.apiObjects.weatherResponse;
+          try {
+            const url = `https://api.weatherbit.io/v2.0/history/hourly?lat=${model.apiData.latitude}&lon=${model.apiData.longitude}&start_date=${model.dates.lastYearStartDate}&end_date=${model.dates.lastYearEndDate}&key=${model.apiData.apiKey}`;
+            const res = await fetch(url);
+            model.apiObjects.apiResponse = await res.json();
+            console.log('::: Fetched data from Weatherbit API :::');
+            // Getting only the data that I will use in the new object
+            model.apiObjects.weatherResponse = {
+              city_name: model.apiObjects.apiResponse.city_name,
+              country_code: model.apiObjects.apiResponse.country_code,
+              temp: model.apiObjects.apiResponse.data.temp,
+              app_temp: model.apiObjects.apiResponse.data.app_temp,
+              weather: {
+                description:
+                  model.apiObjects.apiResponse.data[8].weather.description,
+              },
+            };
+            return model.apiObjects.weatherResponse;
+          } catch (error) {
+            const url = `https://api.weatherbit.io/v2.0/current?lat=${model.apiData.latitude}&lon=${model.apiData.longitude}&key=${model.apiData.apiKey}`;
+            const res = await fetch(url);
+            model.apiObjects.apiResponse = await res.json();
+            console.log('::: Fetched data from Weatherbit API :::');
+            model.apiObjects.weatherResponse = {
+              city_name: model.apiObjects.apiResponse.data[0].city_name,
+              country_code: model.apiObjects.apiResponse.data[0].country_code,
+              temp: model.apiObjects.apiResponse.data[0].temp,
+              app_temp: model.apiObjects.apiResponse.data[0].app_temp,
+              weather: {
+                description:
+                  model.apiObjects.apiResponse.data[0].weather.description,
+              },
+            };
+            return model.apiObjects.weatherResponse;
+          }
           // If the trip is this week
         } else {
           const url = `https://api.weatherbit.io/v2.0/current?lat=${model.apiData.latitude}&lon=${model.apiData.longitude}&key=${model.apiData.apiKey}`;
