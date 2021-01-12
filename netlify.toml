@@ -1,0 +1,3 @@
+[build]
+publish = "dist/"
+functions = "./src/client/netlify_functions/functions.js"
