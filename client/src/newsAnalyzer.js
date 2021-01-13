@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
         getApiKey()
           .then(() => getTextAnalysis(baseUrl, apiKey, formText))
           .then((apiResponse) => {
-            postData('/data', {
+            postData('https://bmg-personal-website-server.herokuapp.com/data', {
               agreement: apiResponse.agreement,
               subjectivity: apiResponse.subjectivity,
               confidence: apiResponse.confidence,
@@ -46,7 +46,9 @@ document.addEventListener('DOMContentLoaded', function () {
       }
 
       async function getApiKey() {
-        const req = await fetch('/api');
+        const req = await fetch(
+          'https://bmg-personal-website-server.herokuapp.com/api'
+        );
         try {
           data = await req.json();
           apiKey = data.meaningCloudKey;
@@ -93,7 +95,9 @@ document.addEventListener('DOMContentLoaded', function () {
       }
 
       async function updateUI() {
-        const req = await fetch('/UIdata');
+        const req = await fetch(
+          'https://bmg-personal-website-server.herokuapp.com/UIdata'
+        );
         const results = document.getElementById('results');
 
         try {

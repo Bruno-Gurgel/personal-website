@@ -22,7 +22,9 @@ button.addEventListener('click', () => {
   const newFeeling = document.getElementById('feeling').value;
 
   const getApiKey = async () => {
-    const req = await fetch('/api');
+    const req = await fetch(
+      'https://bmg-personal-website-server.herokuapp.com/api'
+    );
     try {
       const data = await req.json();
       apiKey = data.openWeatherKey;
@@ -37,7 +39,7 @@ button.addEventListener('click', () => {
     const baseUrl = `https://api.openweathermap.org/data/2.5/weather?zip=${newZip},&appid=${apiKey}&units=metric`;
     if (newFeeling !== '' && newZip !== '') {
       displayWeather(baseUrl).then((data) => {
-        postData('/data', {
+        postData('https://bmg-personal-website-server.herokuapp.com/data', {
           date: newDate,
           temperature: data.main.temp,
           user_response: newFeeling,
@@ -91,7 +93,9 @@ const postData = async (url = '', data = {}) => {
 
 /* Dynamically updating the UI */
 const updateUI = async () => {
-  const request = await fetch('/UIdata');
+  const request = await fetch(
+    'https://bmg-personal-website-server.herokuapp.com/UIdata'
+  );
 
   const dateList = document.querySelector('#date_list');
   const tempList = document.querySelector('#temperature_list');

@@ -266,14 +266,18 @@ document.addEventListener('DOMContentLoaded', async () => {
           .then(() => apis.weatherbitApi())
           .then(() => apis.pixabayApi())
           .then(() =>
-            apis.postData('/data', {
-              city_name: model.apiObjects.weatherResponse.city_name,
-              country_code: model.apiObjects.weatherResponse.country_code,
-              temp: model.apiObjects.weatherResponse.temp,
-              app_temp: model.apiObjects.weatherResponse.app_temp,
-              description: model.apiObjects.weatherResponse.weather.description,
-              photo: model.apiObjects.photoResponse,
-            })
+            apis.postData(
+              'https://bmg-personal-website-server.herokuapp.com/data',
+              {
+                city_name: model.apiObjects.weatherResponse.city_name,
+                country_code: model.apiObjects.weatherResponse.country_code,
+                temp: model.apiObjects.weatherResponse.temp,
+                app_temp: model.apiObjects.weatherResponse.app_temp,
+                description:
+                  model.apiObjects.weatherResponse.weather.description,
+                photo: model.apiObjects.photoResponse,
+              }
+            )
           )
           .then(() => appView.render());
       });
@@ -312,7 +316,9 @@ document.addEventListener('DOMContentLoaded', async () => {
      */
     async weatherbitApi() {
       // Getting API key from the server
-      const req = await fetch('/api');
+      const req = await fetch(
+        'https://bmg-personal-website-server.herokuapp.com/api'
+      );
       try {
         const data = await req.json();
         model.apiData.apiKey = data.weatherBitKey;
@@ -418,8 +424,9 @@ document.addEventListener('DOMContentLoaded', async () => {
      */
     async pixabayApi() {
       // Getting API key from the server
-      // const req = await fetch('http://localhost:8000/api');
-      const req = await fetch('/api');
+      const req = await fetch(
+        'https://bmg-personal-website-server.herokuapp.com/api'
+      );
       try {
         const data = await req.json();
         model.apiData.apiKey = data.photoKey;
