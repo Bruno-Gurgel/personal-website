@@ -3,9 +3,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const { urlencoded } = require('body-parser');
-/* const dotenv = require('dotenv');
-
-dotenv.config(); */
 
 const app = express();
 
@@ -18,14 +15,7 @@ app.use(
   })
 );
 
-// Initialize the main project folder
-app.use(express.static('dist'));
-
 console.log(__dirname);
-
-app.get('/', (req, res) =>
-  res.sendFile(path.resolve('src/client/views/index.html'))
-);
 
 // Empty JS object to act as endpoint for all routes
 let allData = {};
@@ -73,7 +63,6 @@ app.post('/data', (req, res) => {
       photo: req.body.photo,
     },
   };
-  console.log(allData);
   res.send(allData);
 });
 
