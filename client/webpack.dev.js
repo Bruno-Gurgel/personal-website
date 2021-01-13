@@ -7,12 +7,12 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
   mode: 'development',
   entry: {
-    index: './src/client/index.js',
-    blog: './src/client/blog.js',
-    landingPage: './src/client/landingPage.js',
-    weatherApp: './src/client/weatherApp.js',
-    newsAnalyzer: './src/client/newsAnalyzer.js',
-    travelApp: './src/client/travelApp.js',
+    index: './src/index.js',
+    blog: './src/blog.js',
+    landingPage: './src/landingPage.js',
+    weatherApp: './src/weatherApp.js',
+    newsAnalyzer: './src/newsAnalyzer.js',
+    travelApp: './src/travelApp.js',
   },
   devtool: 'source-map',
   devServer: {
@@ -60,47 +60,47 @@ module.exports = {
   },
   plugins: [
     new HtmlWebPackPlugin({
-      template: './src/client/views/index.html',
+      template: './src/views/index.html',
       chunks: ['index'],
       filename: 'index.html',
     }),
     new HtmlWebPackPlugin({
-      template: './src/client/views/about.html',
+      template: './src/views/about.html',
       chunks: ['index'],
       filename: 'about.html',
     }),
     new HtmlWebPackPlugin({
-      template: './src/client/views/blog/blog.html',
+      template: './src/views/blog/blog.html',
       chunks: ['blog'],
       filename: 'blog.html',
     }),
     new HtmlWebPackPlugin({
-      template: './src/client/views/blog/blogAbout.html',
+      template: './src/views/blog/blogAbout.html',
       chunks: ['blog'],
       filename: 'aboutBlog.html',
     }),
     new HtmlWebPackPlugin({
-      template: './src/client/views/blog/blogPost.html',
+      template: './src/views/blog/blogPost.html',
       chunks: ['blog'],
       filename: 'postBlog.html',
     }),
     new HtmlWebPackPlugin({
-      template: './src/client/views/landing_page/landingPage.html',
+      template: './src/views/landing_page/landingPage.html',
       chunks: ['landingPage'],
       filename: 'landingPage.html',
     }),
     new HtmlWebPackPlugin({
-      template: './src/client/views/weather_app/weatherApp.html',
+      template: './src/views/weather_app/weatherApp.html',
       chunks: ['weatherApp'],
       filename: 'weatherApp.html',
     }),
     new HtmlWebPackPlugin({
-      template: './src/client/views/news_analyzer/newsAnalyzer.html',
+      template: './src/views/news_analyzer/newsAnalyzer.html',
       chunks: ['newsAnalyzer'],
       filename: 'newsAnalyzer.html',
     }),
     new HtmlWebPackPlugin({
-      template: './src/client/views/travel_app/travelApp.html',
+      template: './src/views/travel_app/travelApp.html',
       chunks: ['travelApp'],
       filename: 'travelApp.html',
     }),

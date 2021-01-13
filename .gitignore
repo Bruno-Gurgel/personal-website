@@ -1,7 +1,0 @@
-node_modules
-dist
-dump.txt
-dump.js
-dump.scss
-.vscode/
-.env
