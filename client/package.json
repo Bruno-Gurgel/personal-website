@@ -2,7 +2,7 @@
   "name": "personal-website-frontend",
   "version": "1.0.0",
   "description": "My personal website for posting projects.",
-  "main": "server.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "jest",
     "build-dev": "webpack serve  --open Chrome --config webpack.dev.js",
