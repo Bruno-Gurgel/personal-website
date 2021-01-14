@@ -7,8 +7,6 @@ import './style/news_analyzer/header.scss';
 document.addEventListener('DOMContentLoaded', function () {
   // URL checker
   const checkForURL = (inputURL) => {
-    console.log('::: Running checkForURL :::', inputURL);
-
     const regexp = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)/g;
 
     if (regexp.test(inputURL)) {
@@ -29,16 +27,18 @@ document.addEventListener('DOMContentLoaded', function () {
       let data = {};
       // Checking if the URL is valid
       if (checkForURL(formText)) {
-        console.log('::: Form Submitted :::');
         getApiKey()
           .then(() => getTextAnalysis(baseUrl, apiKey, formText))
           .then((apiResponse) => {
-            postData('https://bmg-personal-website-server.herokuapp.com/data', {
-              agreement: apiResponse.agreement,
-              subjectivity: apiResponse.subjectivity,
-              confidence: apiResponse.confidence,
-              irony: apiResponse.irony,
-            });
+            return postData(
+              'https://bmg-personal-website-server.herokuapp.com/data',
+              {
+                agreement: apiResponse.agreement,
+                subjectivity: apiResponse.subjectivity,
+                confidence: apiResponse.confidence,
+                irony: apiResponse.irony,
+              }
+            );
           })
           .then(() => updateUI());
       } else {
@@ -60,13 +60,11 @@ document.addEventListener('DOMContentLoaded', function () {
       }
 
       async function getTextAnalysis(url, key, formURL) {
-        console.log('::: Waiting API Response :::');
         const res = await fetch(
           `${url}key=${key}&of=json.&model=general&lang=en&url=${formURL}`
         );
         try {
           const apiResponse = await res.json();
-          console.log('::: Response Sent :::');
           return apiResponse;
         } catch (error) {
           alert('There was an error:', error.message);
