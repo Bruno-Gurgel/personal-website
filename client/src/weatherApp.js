@@ -38,14 +38,18 @@ button.addEventListener('click', () => {
   getApiKey().then(() => {
     const baseUrl = `https://api.openweathermap.org/data/2.5/weather?zip=${newZip},&appid=${apiKey}&units=metric`;
     if (newFeeling !== '' && newZip !== '') {
-      displayWeather(baseUrl).then((data) => {
-        postData('https://bmg-personal-website-server.herokuapp.com/data', {
-          date: newDate,
-          temperature: data.main.temp,
-          user_response: newFeeling,
-        });
-        updateUI();
-      });
+      displayWeather(baseUrl)
+        .then((data) => {
+          return postData(
+            'https://bmg-personal-website-server.herokuapp.com/data',
+            {
+              date: newDate,
+              temperature: data.main.temp,
+              user_response: newFeeling,
+            }
+          );
+        })
+        .then(() => updateUI());
     } else {
       alert('Please enter Zip code and your feelings');
     }
@@ -58,7 +62,6 @@ const displayWeather = async (url) => {
   if (request.ok) {
     try {
       const data = await request.json();
-      console.log(data);
       return data;
     } catch (error) {
       return alert('There was an error:', error.message);
@@ -83,10 +86,9 @@ const postData = async (url = '', data = {}) => {
 
   try {
     const newData = await response.json();
-    // console.log(newData);
     return newData;
   } catch (error) {
-    console.log('There was an error:', error);
+    alert('There was an error:', error);
     return false;
   }
 };
@@ -114,6 +116,6 @@ const updateUI = async () => {
     contentList.innerHTML = `<li class="query_item">Feeling: ${weatherAppData.user_response}</li>`;
     entryHolder.scrollIntoView({ behavior: 'smooth' });
   } catch (error) {
-    console.log('There was an error:', error);
+    alert('There was an error:', error);
   }
 };
