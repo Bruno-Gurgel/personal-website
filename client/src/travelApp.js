@@ -14,7 +14,6 @@ const storageAvailable = (type) => {
     storage.removeItem(x);
     return true;
   } catch (e) {
-    // console.log(e);
     return (
       e instanceof DOMException &&
       // everything except Firefox
@@ -302,7 +301,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         };
         model.apiObjects.geonamesData = apiData;
         controller.setLatitudeAndLongitude();
-        console.log('::: Fetched data from Geonames API :::');
         return model.apiObjects.geonamesData;
       } catch (error) {
         alert(`There was an error: ${error.message}. Please try again.`);
@@ -322,7 +320,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       try {
         const data = await req.json();
         model.apiData.apiKey = data.weatherBitKey;
-        console.log('::: Got the key of Weatherbit API :::');
 
         // Getting the API data //
 
@@ -334,7 +331,6 @@ document.addEventListener('DOMContentLoaded', async () => {
           const url = `https://api.weatherbit.io/v2.0/forecast/daily?lat=${model.apiData.latitude}&lon=${model.apiData.longitude}&key=${model.apiData.apiKey}`;
           const res = await fetch(url);
           model.apiObjects.apiResponse = await res.json();
-          console.log('::: Fetched data from Weatherbit API :::');
           // Getting only the data that I will use in the new object
           model.apiObjects.weatherResponse = {
             city_name: model.apiObjects.apiResponse.city_name,
@@ -363,7 +359,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             const url = `https://api.weatherbit.io/v2.0/history/hourly?lat=${model.apiData.latitude}&lon=${model.apiData.longitude}&start_date=${model.dates.lastYearStartDate}&end_date=${model.dates.lastYearEndDate}&key=${model.apiData.apiKey}`;
             const res = await fetch(url);
             model.apiObjects.apiResponse = await res.json();
-            console.log('::: Fetched data from Weatherbit API :::');
             // Getting only the data that I will use in the new object
             model.apiObjects.weatherResponse = {
               city_name: model.apiObjects.apiResponse.city_name,
@@ -380,7 +375,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             const url = `https://api.weatherbit.io/v2.0/current?lat=${model.apiData.latitude}&lon=${model.apiData.longitude}&key=${model.apiData.apiKey}`;
             const res = await fetch(url);
             model.apiObjects.apiResponse = await res.json();
-            console.log('::: Fetched data from Weatherbit API :::');
             model.apiObjects.weatherResponse = {
               city_name: model.apiObjects.apiResponse.data[0].city_name,
               country_code: model.apiObjects.apiResponse.data[0].country_code,
@@ -398,7 +392,6 @@ document.addEventListener('DOMContentLoaded', async () => {
           const url = `https://api.weatherbit.io/v2.0/current?lat=${model.apiData.latitude}&lon=${model.apiData.longitude}&key=${model.apiData.apiKey}`;
           const res = await fetch(url);
           model.apiObjects.apiResponse = await res.json();
-          console.log('::: Fetched data from Weatherbit API :::');
           model.apiObjects.weatherResponse = {
             city_name: model.apiObjects.apiResponse.data[0].city_name,
             country_code: model.apiObjects.apiResponse.data[0].country_code,
@@ -430,12 +423,10 @@ document.addEventListener('DOMContentLoaded', async () => {
       try {
         const data = await req.json();
         model.apiData.apiKey = data.photoKey;
-        console.log('::: Got the key of Pixabay API :::');
         // Fetching data
         const url = `https://pixabay.com/api/?key=${model.apiData.apiKey}&q=${model.apiObjects.weatherResponse.city_name}&image_type=photo`;
         const res = await fetch(url);
         model.apiObjects.apiResponse = await res.json();
-        console.log('::: Fetched data from Pixabay API :::');
         /* If it is a big city, there will be 20 'hits' photos
          * Then it will be randomly chosen
          */
