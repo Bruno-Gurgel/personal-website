@@ -19,6 +19,7 @@
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
+    padding: 0px;
   }
 
   .featured-post {
