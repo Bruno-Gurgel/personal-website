@@ -6,6 +6,7 @@ form {
   .location__input {
     @extend %input;
     width: 30%;
+    height: 30px;
     background-color: #2e3d49;
     color: #abe9ca;
     font-size: 1.5rem;
@@ -39,6 +40,7 @@ form {
     @include for-desktop-only {
       vertical-align: baseline;
       width: 15%;
+      height: 30px;
       background-color: #2e3d49;
       color: #abe9ca;
       &::placeholder {
