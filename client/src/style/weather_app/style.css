@@ -131,8 +131,10 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  text-align: center;
+  text-align: left;
   list-style-type: none;
+  padding: 0px;
+  padding-left: 40%;
 }
 
 .query_item {

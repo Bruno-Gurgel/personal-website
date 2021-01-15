@@ -5,26 +5,27 @@ form {
 
   .location__input {
     @extend %input;
-    width: 20%;
+    width: 30%;
     background-color: #2e3d49;
+    color: #abe9ca;
+    font-size: 1.5rem;
+    &::placeholder {
+      color: #abe9ca;
+      opacity: 0.5;
+    }
     @include for-phone-only {
       width: 70%;
+      font-size: 1rem;
       &::placeholder {
         font-size: 1rem;
       }
     }
     @include for-tablet-only {
-      width: 45%;
-      height: 35px;
+      width: 50%;
+      height: 50px;
+      font-size: 1.5rem;
       &::placeholder {
-        font-size: 1.3rem;
-      }
-    }
-    @include for-desktop-only {
-      color: #abe9ca;
-      &::placeholder {
-        color: #abe9ca;
-        opacity: 0.5;
+        font-size: 1rem;
       }
     }
     @include for-printing-only {
@@ -34,14 +35,10 @@ form {
   }
   .dates__input {
     @extend %input;
-    width: 15%;
-    @include for-phone-only {
-      min-width: 50%;
-    }
-    @include for-tablet-only {
-      min-width: 20%;
-    }
+    vertical-align: bottom;
     @include for-desktop-only {
+      vertical-align: baseline;
+      width: 15%;
       background-color: #2e3d49;
       color: #abe9ca;
       &::placeholder {
