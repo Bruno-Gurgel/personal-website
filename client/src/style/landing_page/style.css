@@ -21,6 +21,8 @@ body {
 
 p {
   text-align: justify;
+  padding: 10px;
+  line-height: 1.5;
 }
 
 /* Header */
@@ -50,7 +52,7 @@ p {
   border-radius: 25px;
   padding: 5px;
   border-bottom: 2px inset #000000;
-  margin-bottom: 20px;
+  margin: 10px 0 20px 0;
 }
 
 .home__link:hover {
@@ -337,6 +339,9 @@ Desktop layout
 ============================
 */
 @media screen and (min-width: 901px) {
+  p {
+    padding: 0px;
+  }
   .home__link {
     margin-bottom: 10px;
   }
