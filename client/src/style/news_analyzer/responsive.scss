@@ -1,0 +1,39 @@
+// Tablet layout
+@media screen and (min-width: 600px) and (max-width: 900px) {
+  form {
+    padding: 40px;
+    width: 80%;
+    .input__text {
+      &::placeholder {
+        font-size: 1.2rem;
+      }
+    }
+
+    .input__button {
+      width: 20%;
+      font-size: 1.5rem;
+    }
+  }
+}
+
+// Desktop layout
+@media screen and (min-width: 901px) {
+  form {
+    padding: 40px;
+    width: 80%;
+    .input__text {
+      &::placeholder {
+        font-size: 1.5rem;
+      }
+    }
+
+    .input__button {
+      width: 20%;
+      font-size: 1.5rem;
+    }
+  }
+
+  .results__item {
+    text-align: justify;
+  }
+}
