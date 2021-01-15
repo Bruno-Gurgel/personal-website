@@ -6,11 +6,26 @@ form {
   .location__input {
     @extend %input;
     width: 20%;
+    background-color: #2e3d49;
     @include for-phone-only {
       width: 70%;
+      &::placeholder {
+        font-size: 1rem;
+      }
     }
     @include for-tablet-only {
-      width: 40%;
+      width: 45%;
+      height: 35px;
+      &::placeholder {
+        font-size: 1.3rem;
+      }
+    }
+    @include for-desktop-only {
+      color: #abe9ca;
+      &::placeholder {
+        color: #abe9ca;
+        opacity: 0.5;
+      }
     }
     @include for-printing-only {
       width: 50%;
@@ -21,10 +36,18 @@ form {
     @extend %input;
     width: 15%;
     @include for-phone-only {
-      width: 50%;
+      min-width: 50%;
     }
     @include for-tablet-only {
-      width: 20%;
+      min-width: 20%;
+    }
+    @include for-desktop-only {
+      background-color: #2e3d49;
+      color: #abe9ca;
+      &::placeholder {
+        color: #abe9ca;
+        opacity: 0.5;
+      }
     }
     @include for-printing-only {
       width: 25%;
