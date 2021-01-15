@@ -6,6 +6,14 @@
   .banner {
     .banner__heading {
       font-size: 3rem;
+      .banner__passionate {
+        display: inline;
+        margin: 0;
+      }
+      .banner__underlined {
+        display: inline;
+        margin: 0;
+      }
     }
 
     .banner__intro {
@@ -13,8 +21,6 @@
     }
   }
   .projects {
-    flex-flow: row wrap;
-    justify-content: center;
     gap: 20px;
     .projects__figure {
       width: 45%;
@@ -73,6 +79,15 @@
     .banner__heading {
       padding: 20px;
       font-size: 5rem;
+      .banner__passionate {
+        display: inline;
+        margin: 0;
+        font-size: 5rem;
+      }
+      .banner__underlined {
+        display: inline;
+        margin: 0;
+      }
     }
 
     .banner__intro {
@@ -91,13 +106,6 @@
       }
       .figcaption {
         display: none;
-      }
-      &.--travel,
-      &.--npl,
-      &.--weather,
-      &.--landing,
-      &.--blog {
-        background-color: hsl(210, 10%, 80%);
       }
       // Cards will have hover effect only on desktop view.
       &:hover,

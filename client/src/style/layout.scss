@@ -1,5 +1,9 @@
 body {
-  background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+  background-image: radial-gradient(
+    circle farthest-corner at 10% 20%,
+    #455666 0%,
+    rgba(34, 34, 34, 1) 90%
+  );
 }
 .grid {
   display: grid;
@@ -56,20 +60,12 @@ body {
         padding: 10px;
       }
     }
-    &.--travel {
-      background-color: hsl(24, 100%, 57%);
-    }
-    &.--npl {
-      background-color: hsl(47, 28%, 86%);
-    }
-    &.--weather {
-      background-color: hsl(41, 100%, 68%);
-    }
-    &.--landing {
-      background-color: hsl(6, 63%, 85%);
-    }
+    &.--travel,
+    &.--npl,
+    &.--weather,
+    &.--landing,
     &.--blog {
-      background-color: hsl(210, 7%, 89%);
+      background-color: hsl(0, 0%, 97%);
     }
   }
 }
@@ -87,11 +83,8 @@ body {
   font-size: 4rem;
 }
 
-.about__intro {
-  color: hsl(189, 75%, 75%);
-  .about__name {
-    color: hsl(60, 100%, 50%);
-  }
+.about__name {
+  color: hsl(60, 100%, 50%);
 }
 
 .about__text {

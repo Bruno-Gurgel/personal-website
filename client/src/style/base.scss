@@ -1,6 +1,6 @@
 // Variables
 $font: 'Dosis', sans-serif;
-$primary-color: hsl(13, 100%, 95%);
+$primary-color: hsl(13, 100%, 98%);
 
 body {
   font-size: 16px;
@@ -29,15 +29,20 @@ body {
 .banner {
   text-align: center;
   .banner__heading {
-    color: hsl(189, 75%, 75%);
-    font-size: 1.7rem;
+    color: $primary-color;
+    font-size: 2.5rem;
     padding: 5px;
     .banner__underlined {
       text-decoration: underline;
       text-decoration-color: hsl(0, 100%, 50%);
+      display: table;
+      margin: 0 auto;
     }
     .banner__passionate {
       color: hsl(0, 100%, 50%);
+      display: table;
+      margin: 0 auto;
+      font-size: 3rem;
     }
   }
   .banner__intro {
@@ -45,7 +50,7 @@ body {
     margin-top: 50px;
     margin-bottom: 2px;
     text-decoration: underline;
-    color: hsl(189, 75%, 75%);
+    color: $primary-color;
   }
 }
 
