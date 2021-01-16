@@ -88,6 +88,16 @@ main {
         font-size: 4rem;
       }
     }
+    h2 {
+      text-align: justify;
+      padding: 0 10px;
+      @include for-tablet-only {
+        padding: 0 15px;
+      }
+      @include for-desktop-only {
+        padding: 0 20px;
+      }
+    }
   }
   .main__results {
     h2 {
