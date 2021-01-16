@@ -51,6 +51,11 @@ body {
   text-decoration: underline;
 }
 
+.project__obs {
+  text-align: justify;
+  padding: 0 15px;
+}
+
 .zipcode {
   font-size: 2rem;
 }
@@ -147,6 +152,10 @@ body {
     font-size: 4rem;
   }
 
+  .project__obs {
+    padding: 0 20px;
+  }
+
   .zipcode {
     font-size: 3rem;
   }
@@ -171,6 +180,9 @@ body {
   .heading__top {
     font-size: 5rem;
     margin: 10px 0;
+  }
+  .project__obs {
+    padding: 0 30px;
   }
 
   .zipcode {
