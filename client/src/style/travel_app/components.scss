@@ -36,9 +36,7 @@ form {
   }
   .dates__input {
     @extend %input;
-    vertical-align: bottom;
     @include for-desktop-only {
-      vertical-align: baseline;
       width: 15%;
       height: 30px;
       background-color: #2e3d49;
