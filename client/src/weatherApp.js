@@ -21,19 +21,9 @@ button.addEventListener('click', () => {
   const newZip = document.getElementById('zip').value;
   const newFeeling = document.getElementById('feeling').value;
 
-  const getApiKey = async () => {
-    const req = await fetch(
-      'https://bmg-personal-website-server.herokuapp.com/api'
-    );
-    try {
-      const data = await req.json();
-      apiKey = data.openWeatherKey;
-      return apiKey;
-    } catch (error) {
-      alert('There was an error:', error.message);
-      return false;
-    }
-  };
+  document.querySelector('#entryHolder').style.display = 'none';
+  document.querySelector('.loader').style.display = 'inline-block';
+  document.querySelector('.loader').scrollIntoView({ behavior: 'smooth' });
 
   getApiKey().then(() => {
     const baseUrl = `https://api.openweathermap.org/data/2.5/weather?zip=${newZip},&appid=${apiKey}&units=metric`;
@@ -54,68 +44,84 @@ button.addEventListener('click', () => {
       alert('Please enter Zip code and your feelings');
     }
   });
-});
 
-/* Function to GET Web API Data */
-const displayWeather = async (url) => {
-  const request = await fetch(url);
-  if (request.ok) {
+  async function getApiKey() {
+    const req = await fetch(
+      'https://bmg-personal-website-server.herokuapp.com/api'
+    );
     try {
-      const data = await request.json();
-      return data;
+      const data = await req.json();
+      apiKey = data.openWeatherKey;
+      return apiKey;
     } catch (error) {
-      return alert('There was an error:', error.message);
+      alert('There was an error:', error.message);
+      return false;
     }
-  } else if (request.status === 404) {
-    return alert('City not found. Are you sure the Zip is from USA?');
-  } else {
-    return alert(`There was an error: ${request.statusText}`);
   }
-};
 
-/* Function to POST data */
-const postData = async (url = '', data = {}) => {
-  const response = await fetch(url, {
-    method: 'POST',
-    credentials: 'same-origin',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(data),
-  });
-
-  try {
-    const newData = await response.json();
-    return newData;
-  } catch (error) {
-    alert('There was an error:', error);
-    return false;
+  /* Function to GET Web API Data */
+  async function displayWeather(url) {
+    const request = await fetch(url);
+    if (request.ok) {
+      try {
+        const data = await request.json();
+        return data;
+      } catch (error) {
+        return alert('There was an error:', error.message);
+      }
+    } else if (request.status === 404) {
+      return alert('City not found. Are you sure the Zip is from USA?');
+    } else {
+      return alert(`There was an error: ${request.statusText}`);
+    }
   }
-};
 
-/* Dynamically updating the UI */
-const updateUI = async () => {
-  const request = await fetch(
-    'https://bmg-personal-website-server.herokuapp.com/UIdata'
-  );
+  /* Function to POST data */
+  async function postData(url = '', data = {}) {
+    const response = await fetch(url, {
+      method: 'POST',
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
 
-  const dateList = document.querySelector('#date_list');
-  const tempList = document.querySelector('#temperature_list');
-  const contentList = document.querySelector('#content_list');
-  const entryHolder = document.querySelector('#entryHolder');
-  // Showing the results div when the button is clicked
-  entryHolder.style.display = 'grid';
-
-  try {
-    const allData = await request.json();
-    const { weatherAppData } = allData;
-    dateList.innerHTML = `<li class="query_item">Date: ${weatherAppData.date}</li>`;
-    tempList.innerHTML = `<li class="query_item">Temperature: ${weatherAppData.temperature.toFixed(
-      0
-    )}ºC</li>`;
-    contentList.innerHTML = `<li class="query_item">Feeling: ${weatherAppData.user_response}</li>`;
-    entryHolder.scrollIntoView({ behavior: 'smooth' });
-  } catch (error) {
-    alert('There was an error:', error);
+    try {
+      const newData = await response.json();
+      return newData;
+    } catch (error) {
+      alert('There was an error:', error);
+      return false;
+    }
   }
-};
+
+  /* Dynamically updating the UI */
+  async function updateUI() {
+    const request = await fetch(
+      'https://bmg-personal-website-server.herokuapp.com/UIdata'
+    );
+
+    const dateList = document.querySelector('#date_list');
+    const tempList = document.querySelector('#temperature_list');
+    const contentList = document.querySelector('#content_list');
+    const entryHolder = document.querySelector('#entryHolder');
+
+    try {
+      const allData = await request.json();
+      const { weatherAppData } = allData;
+      dateList.innerHTML = `<li class="query_item">Date: ${weatherAppData.date}</li>`;
+      tempList.innerHTML = `<li class="query_item">Temperature: ${weatherAppData.temperature.toFixed(
+        0
+      )}ºC</li>`;
+      contentList.innerHTML = `<li class="query_item">Feeling: ${weatherAppData.user_response}</li>`;
+      document.querySelector('.loader').style.display = '';
+      document.querySelector('#entryHolder').style.display = '';
+      // Showing the results div when the button is clicked
+      entryHolder.style.display = 'grid';
+      entryHolder.scrollIntoView({ behavior: 'smooth' });
+    } catch (error) {
+      alert('There was an error:', error);
+    }
+  }
+});
