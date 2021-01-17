@@ -254,6 +254,11 @@ document.addEventListener('DOMContentLoaded', async () => {
       }
       appView.form.addEventListener('submit', async (event) => {
         event.preventDefault();
+
+        appView.resultsDiv.style.display = 'none';
+        appView.loader.style.display = 'inline-block';
+        appView.loader.scrollIntoView({ behavior: 'smooth' });
+
         this.setInputData();
         // Saving the input data on the Local Storage
         if (storageAvailable('localStorage')) {
@@ -480,6 +485,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const appView = {
     init() {
       this.form = document.querySelector('.form');
+      this.loader = document.querySelector('.loader');
       this.resultsDiv = document.getElementById('results');
     },
 
@@ -515,6 +521,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         preFillToDoData();
       }
       /* eslint-enable prettier/prettier */
+      appView.loader.style.display = '';
+      appView.resultsDiv.style.display = '';
       appView.resultsDiv.style.display = 'grid';
       appView.resultsDiv.scrollIntoView({ behavior: 'smooth' });
       toDoView.init();
