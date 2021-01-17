@@ -25,6 +25,11 @@ document.addEventListener('DOMContentLoaded', function () {
       const baseUrl = 'https://api.meaningcloud.com/sentiment-2.1?';
       let apiKey = '';
       let data = {};
+
+      document.getElementById('results').style.display = 'none';
+      document.querySelector('.loader').style.display = 'inline-block';
+      document.querySelector('.loader').scrollIntoView({ behavior: 'smooth' });
+
       // Checking if the URL is valid
       if (checkForURL(formText)) {
         getApiKey()
@@ -107,6 +112,8 @@ document.addEventListener('DOMContentLoaded', function () {
           <li class="results__item"><span class="api__title">Subjectivity:</span> ${newsAnalyzerData.subjectivity};</li>
           <li class="results__item"><span class="api__title">Confidence:</span> ${newsAnalyzerData.confidence}%;</li>
           <li class="results__item"><span class="api__title">Irony:</span> ${newsAnalyzerData.irony}.</li>`;
+          document.querySelector('.loader').style.display = '';
+          document.getElementById('results').style.display = '';
           results.scrollIntoView({ behavior: 'smooth' });
         } catch (error) {
           alert('There was an error:', error.message);
