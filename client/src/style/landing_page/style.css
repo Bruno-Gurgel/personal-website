@@ -70,7 +70,7 @@ p {
     'footer';
   max-width: 100%;
 }
-/* .page__header */
+
 .navbar__menu {
   grid-area: nav;
   width: 100%;
