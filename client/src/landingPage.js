@@ -5,9 +5,14 @@ import './style/landing_page/style.css';
 
 // Importing image
 import productImage from './img/landing_page/product.webp';
+// Importing fallbac image for older browsers
+import fallbackImage from './img/landing_page/fallback/product.jpg';
 
-const product = document.querySelector('.product__image');
-product.src = productImage;
+const product = document.querySelector('.--webp');
+product.srcset = productImage;
+
+const fallback = document.querySelector('.--fallback');
+fallback.src = fallbackImage;
 
 /* MAIN CODE */
 
