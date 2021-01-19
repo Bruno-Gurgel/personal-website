@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "test": "jest",
-    "build-dev": "webpack serve  --open Chrome --config webpack.dev.js",
+    "build-dev": "webpack serve  --open Chrome --config webpack.dev.js --watch",
     "build": "webpack --config webpack.prod.js"
   },
   "repository": {
