@@ -33,7 +33,7 @@ body {
 .grid__container {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 2fr;
+  grid-template-rows: min-content;
   grid-template-areas:
     'main'
     'recent';
