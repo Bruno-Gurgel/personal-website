@@ -2,6 +2,7 @@ import './style/news_analyzer/base.scss';
 import './style/news_analyzer/form.scss';
 import './style/news_analyzer/footer.scss';
 import './style/news_analyzer/header.scss';
+import './style/news_analyzer/responsive.scss';
 
 // Wait Dom to be loaded - Better for Jest testing
 document.addEventListener('DOMContentLoaded', function () {
@@ -16,96 +17,104 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   };
 
-  document
-    .querySelector('#submit')
-    .addEventListener('click', function callbackFunction(event) {
-      event.preventDefault();
+  document.querySelector('#submit').addEventListener('click', (event) => {
+    event.preventDefault();
 
-      const formText = document.getElementById('name').value;
-      const baseUrl = 'https://api.meaningcloud.com/sentiment-2.1?';
-      let apiKey = '';
-      let data = {};
+    const formText = document.getElementById('name').value;
+    const baseUrl = 'https://api.meaningcloud.com/sentiment-2.1?';
+    let apiKey = '';
+    let data = {};
 
-      document.getElementById('results').style.display = 'none';
-      document.querySelector('.loader').style.display = 'inline-block';
-      document.querySelector('.loader').scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('results').style.display = 'none';
+    document.querySelector('.loader').style.display = 'inline-block';
+    document.querySelector('.loader').scrollIntoView({ behavior: 'smooth' });
 
-      // Checking if the URL is valid
-      if (checkForURL(formText)) {
-        getApiKey()
-          .then(() => getTextAnalysis(baseUrl, apiKey, formText))
-          .then((apiResponse) => {
-            return postData(
-              'https://bmg-personal-website-server.herokuapp.com/data',
-              {
-                agreement: apiResponse.agreement,
-                subjectivity: apiResponse.subjectivity,
-                confidence: apiResponse.confidence,
-                irony: apiResponse.irony,
-              }
-            );
-          })
-          .then(() => updateUI());
-      } else {
-        alert('Invalid URL');
+    // Checking if the URL is valid
+    if (checkForURL(formText)) {
+      getApiKey()
+        .then(() => getTextAnalysis(baseUrl, apiKey, formText))
+        .then((apiResponse) => {
+          return postData(
+            'https://bmg-personal-website-server.herokuapp.com/data',
+            {
+              agreement: apiResponse.agreement,
+              subjectivity: apiResponse.subjectivity,
+              confidence: apiResponse.confidence,
+              irony: apiResponse.irony,
+            }
+          );
+        })
+        .then(() => updateUI());
+    } else {
+      alert('Invalid URL');
+    }
+
+    async function getApiKey() {
+      const req = await fetch(
+        'https://bmg-personal-website-server.herokuapp.com/api'
+      );
+      try {
+        data = await req.json();
+        apiKey = data.meaningCloudKey;
+        return apiKey;
+      } catch (error) {
+        alert('There was an error:', error.message);
+        return false;
       }
+    }
 
-      async function getApiKey() {
-        const req = await fetch(
-          'https://bmg-personal-website-server.herokuapp.com/api'
-        );
-        try {
-          data = await req.json();
-          apiKey = data.meaningCloudKey;
-          return apiKey;
-        } catch (error) {
-          alert('There was an error:', error.message);
-          return false;
-        }
-      }
-
-      async function getTextAnalysis(url, key, formURL) {
-        const res = await fetch(
-          `${url}key=${key}&of=json.&model=general&lang=en&url=${formURL}`
-        );
-        try {
-          const apiResponse = await res.json();
+    async function getTextAnalysis(url, key, formURL) {
+      const res = await fetch(
+        `${url}key=${key}&of=json.&model=general&lang=en&url=${formURL}`
+      );
+      try {
+        const apiResponse = await res.json();
+        if (apiResponse.status.code === '212') {
+          throw new Error();
+        } else {
           return apiResponse;
-        } catch (error) {
-          alert('There was an error:', error.message);
-          return false;
         }
+      } catch (error) {
+        return false;
       }
+    }
 
-      // eslint-disable-next-line no-shadow
-      async function postData(url = '', data = {}) {
-        const res = await fetch(url, {
-          method: 'POST',
-          credentials: 'same-origin',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data),
-        });
+    // eslint-disable-next-line no-shadow
+    async function postData(url = '', data = {}) {
+      const res = await fetch(url, {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
 
-        try {
-          const newData = await res.json();
-          return newData;
-        } catch (error) {
-          alert('There was an error:', error.message);
+      try {
+        const newData = await res.json();
+        return newData;
+      } catch (error) {
+        alert('There was an error:', error.message);
+        return false;
+      }
+    }
+
+    async function updateUI() {
+      const req = await fetch(
+        'https://bmg-personal-website-server.herokuapp.com/UIdata'
+      );
+      const results = document.getElementById('results');
+
+      try {
+        const allData = await req.json();
+        const { newsAnalyzerData } = allData;
+        if (Object.entries(newsAnalyzerData).length === 0) {
+          document.querySelector('.loader').style.display = '';
+          results.style.display = '';
+          results.innerHTML =
+            "<h2 class= 'error'>Sorry. This page cannot be analyzed because it is blocked.</h2>";
           return false;
-        }
-      }
-
-      async function updateUI() {
-        const req = await fetch(
-          'https://bmg-personal-website-server.herokuapp.com/UIdata'
-        );
-        const results = document.getElementById('results');
-
-        try {
-          const allData = await req.json();
-          const { newsAnalyzerData } = allData;
+        } else {
           results.innerHTML = `
           <li class="results__item"><span class="api__title">URL:</span> ${formText}</li>
           <li class="results__item"><span class="api__title">Agreement:</span> ${newsAnalyzerData.agreement};</li>
@@ -115,9 +124,10 @@ document.addEventListener('DOMContentLoaded', function () {
           document.querySelector('.loader').style.display = '';
           document.getElementById('results').style.display = '';
           results.scrollIntoView({ behavior: 'smooth' });
-        } catch (error) {
-          alert('There was an error:', error.message);
         }
+      } catch (error) {
+        alert('There was an error:', error.message);
       }
-    });
+    }
+  });
 });
