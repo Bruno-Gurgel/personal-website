@@ -56,6 +56,15 @@ module.exports = {
           outputPath: 'images/',
         },
       },
+      // Favicon Loader
+      {
+        test: /\.ico$/,
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext]',
+          outputPath: 'favicon/',
+        },
+      },
     ],
   },
   plugins: [
@@ -63,6 +72,7 @@ module.exports = {
       template: './src/views/index.html',
       chunks: ['index'],
       filename: 'index.html',
+      favicon: './favicon.ico',
     }),
     new HtmlWebPackPlugin({
       template: './src/views/about.html',
