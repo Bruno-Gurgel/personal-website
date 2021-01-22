@@ -13,6 +13,7 @@ form {
     &::placeholder {
       color: #abe9ca;
       opacity: 0.5;
+      font-size: 1.2rem;
     }
     @include for-phone-only {
       width: 70%;
@@ -143,7 +144,6 @@ img {
     li {
       cursor: pointer;
       position: relative;
-      // width: 35%;
       width: 78%;
       padding: 12px 8px 12px 40px;
       background-color: #eee;
@@ -196,7 +196,6 @@ img {
     margin-bottom: 5px;
     border: none;
     border-radius: 0;
-    // width: 35%;
     width: 70%;
     padding: 10px;
     float: left;

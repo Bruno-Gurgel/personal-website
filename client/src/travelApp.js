@@ -156,7 +156,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     init() {
       appView.init();
       this.mainFunction();
-      // this.toDoList();
     },
     /**
      * Changes the model.input properties to the values that the user entendered.
