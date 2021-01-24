@@ -58,16 +58,13 @@ body {
   color: #ccc;
 }
 
-.logo {
-  font-size: 1.5rem;
-  color: #ffffff;
-  text-decoration: none;
-  letter-spacing: 2px;
-  padding: 6px 10px 0px 0;
-}
-
 .item {
   padding: 0px 10px;
+}
+
+.featured-post {
+  background-image: url('../../img/blog/feat-post-img.png');
+  background-size: contain;
 }
 
 .footer {
@@ -163,7 +160,8 @@ figcaption {
   margin-left: 5px;
 }
 
-.img {
+.avatar-img--webp,
+.avatar-img--fallback {
   width: 10%;
   border-radius: 50%;
   margin: 0px;
