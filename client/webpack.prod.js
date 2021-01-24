@@ -57,19 +57,11 @@ module.exports = {
       },
       {
         // IMAGE LOADER
-        test: /\.(png|gif|svg|webp)$/i,
+        test: /\.(jpe?g|png|gif|svg|webp)$/i,
         loader: 'file-loader',
         options: {
           name: '[name].[ext]',
           outputPath: 'images/',
-        },
-      },
-      {
-        test: /\.(jpe?g)$/i,
-        loader: 'file-loader',
-        options: {
-          name: '[name].[ext]',
-          outputPath: 'images/jpg/',
         },
       },
       // Favicon Loader
