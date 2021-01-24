@@ -111,4 +111,9 @@
     width: 100%;
     text-align: justify;
   }
+
+  .avatar-img--webp,
+  .avatar-img--fallback {
+    width: 20%;
+  }
 }
