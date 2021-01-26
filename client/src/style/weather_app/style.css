@@ -56,6 +56,15 @@ body {
   padding: 0 15px;
 }
 
+.error {
+  border: 2px solid #ebccd1;
+  background-color: #f2dede;
+  color: #a94442;
+  padding: 20px;
+  text-align: center;
+  font-weight: normal;
+}
+
 .zipcode {
   font-size: 2rem;
 }
