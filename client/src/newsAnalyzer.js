@@ -46,35 +46,43 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .then(() => updateUI());
     } else {
-      alert('Invalid URL');
+      document.querySelector('.loader').style.display = '';
+      document.querySelector('.main__bottom').innerHTML =
+        '<h3 class="error"><strong>Error!</strong> Please insert a valid URL</h3>';
+      return false;
     }
 
     async function getApiKey() {
-      const req = await fetch(
-        'https://bmg-personal-website-server.herokuapp.com/api'
-      );
       try {
+        const req = await fetch(
+          'https://bmg-personal-website-server.herokuapp.com/api'
+        );
         data = await req.json();
         apiKey = data.meaningCloudKey;
         return apiKey;
-      } catch (error) {
-        alert('There was an error:', error.message);
+      } catch (e) {
+        document.querySelector('.loader').style.display = '';
+        document.querySelector('.main__bottom').innerHTML =
+          '<h3 class="error"><strong>Error!</strong> Sorry, there was an internal error, can you please reload the page and try again?</h3>';
         return false;
       }
     }
 
     async function getTextAnalysis(url, key, formURL) {
-      const res = await fetch(
-        `${url}key=${key}&of=json.&model=general&lang=en&url=${formURL}`
-      );
       try {
+        const res = await fetch(
+          `${url}key=${key}&of=json.&model=general&lang=en&url=${formURL}`
+        );
         const apiResponse = await res.json();
         if (apiResponse.status.code === '212') {
           throw new Error();
         } else {
           return apiResponse;
         }
-      } catch (error) {
+      } catch (e) {
+        document.querySelector('.loader').style.display = '';
+        document.querySelector('.main__bottom').innerHTML =
+          '<h3 class="error"><strong>Error!</strong> Sorry, there was an internal error, can you please reload the page and try again?</h3>';
         return false;
       }
     }
@@ -93,26 +101,28 @@ document.addEventListener('DOMContentLoaded', function () {
       try {
         const newData = await res.json();
         return newData;
-      } catch (error) {
-        alert('There was an error:', error.message);
+      } catch (e) {
+        document.querySelector('.loader').style.display = '';
+        document.querySelector('.main__bottom').innerHTML =
+          '<h3 class="error"><strong>Error!</strong> Sorry, there was an internal error, can you please reload the page and try again?</h3>';
         return false;
       }
     }
 
     async function updateUI() {
-      const req = await fetch(
-        'https://bmg-personal-website-server.herokuapp.com/UIdata'
-      );
       const results = document.getElementById('results');
 
       try {
+        const req = await fetch(
+          'https://bmg-personal-website-server.herokuapp.com/UIdata'
+        );
         const allData = await req.json();
         const { newsAnalyzerData } = allData;
         if (Object.entries(newsAnalyzerData).length === 0) {
           document.querySelector('.loader').style.display = '';
           results.style.display = '';
           results.innerHTML =
-            "<h2 class= 'error'>Sorry. This page cannot be analyzed because it is blocked.</h2>";
+            "<h2 class='error'><strong>Sorry</strong>. This page cannot be analyzed because it is blocked.</h2>";
           return false;
         } else {
           results.innerHTML = `
@@ -125,8 +135,11 @@ document.addEventListener('DOMContentLoaded', function () {
           document.getElementById('results').style.display = '';
           results.scrollIntoView({ behavior: 'smooth' });
         }
-      } catch (error) {
-        alert('There was an error:', error.message);
+      } catch (e) {
+        document.querySelector('.loader').style.display = '';
+        document.querySelector('.main__bottom').innerHTML =
+          '<h3 class="error"><strong>Error!</strong> Sorry, there was an internal error, can you please reload the page and try again?</h3>';
+        return false;
       }
     }
   });
