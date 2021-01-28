@@ -307,10 +307,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         controller.setLatitudeAndLongitude();
         return model.apiObjects.geonamesData;
       } catch (e) {
-        document.getElementById('results').innerHTML =
+        document.getElementById('error').innerHTML =
           '<h3 class="error"><strong>Error!</strong> Sorry, there was an internal error, can you please reload the page and try again?</h3>';
         document.querySelector('.loader').style.display = '';
-        document.getElementById('results').style.display = 'block';
+        document.getElementById('error').style.display = 'block';
         return false;
       }
     },
@@ -412,10 +412,10 @@ document.addEventListener('DOMContentLoaded', async () => {
           return model.apiObjects.weatherResponse;
         }
       } catch (e) {
-        document.getElementById('results').innerHTML =
+        document.getElementById('error').innerHTML =
           '<h3 class="error"><strong>Error!</strong> Sorry, there was an internal error, can you please reload the page and try again?</h3>';
         document.querySelector('.loader').style.display = '';
-        document.getElementById('results').style.display = 'block';
+        document.getElementById('error').style.display = 'block';
         return false;
       }
     },
@@ -455,10 +455,10 @@ document.addEventListener('DOMContentLoaded', async () => {
           return model.apiObjects.photoResponse;
         }
       } catch (e) {
-        document.getElementById('results').innerHTML =
-          '<h3 class="error"><strong>Error!</strong> Sorry, there was an internal error, can you please reload the page and try again?</h3>';
+        document.getElementById('error').innerHTML =
+          '<h3 class="error"><strong>Error!</strong> Sorry, there was an error fetching the image, can you please reload the page and try again?</h3>';
         document.querySelector('.loader').style.display = '';
-        document.getElementById('results').style.display = 'block';
+        document.getElementById('error').style.display = 'block';
         return false;
       }
     },
@@ -483,10 +483,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         model.apiObjects.newData = allData.travelAppData;
         return model.apiObjects.newData;
       } catch (e) {
-        document.getElementById('results').innerHTML =
-          '<h3 class="error"><strong>Error!</strong> Sorry, there was an internal error, can you please reload the page and try again?</h3>';
+        document.getElementById('error').innerHTML =
+          '<h3 class="error"><strong>Error!</strong> Sorry, there was an error fetching the image, can you please reload the page and try again?</h3>';
         document.querySelector('.loader').style.display = '';
-        document.getElementById('results').style.display = 'block';
+        document.getElementById('error').style.display = 'block';
         return false;
       }
     },
