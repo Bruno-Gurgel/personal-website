@@ -96,6 +96,7 @@ main {
       }
       @include for-desktop-only {
         padding: 0 20px;
+        text-align: center;
       }
     }
   }
