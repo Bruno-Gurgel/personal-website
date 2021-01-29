@@ -1,8 +1,8 @@
-const path = require('path');
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const { urlencoded } = require('body-parser');
+const path = require("path");
+const express = require("express");
+const bodyParser = require("body-parser");
+const cors = require("cors");
+const { urlencoded } = require("body-parser");
 
 const app = express();
 
@@ -32,7 +32,7 @@ const weatherBitAPIKey = process.env.WEATHERBIT_API_KEY;
 const pixabayAPIKey = process.env.PIXABAY_API_KEY;
 
 // Sending the API key to the client
-app.get('/api', (req, res) =>
+app.get("/api", (req, res) =>
   res.send({
     openWeatherKey: openWeatherAPIKey,
     meaningCloudKey: meaningCloudAPIKey,
@@ -41,7 +41,7 @@ app.get('/api', (req, res) =>
   })
 );
 
-app.post('/data', (req, res) => {
+app.post("/data", (req, res) => {
   allData = {
     weatherAppData: {
       date: req.body.date,
@@ -66,6 +66,6 @@ app.post('/data', (req, res) => {
   res.send(allData);
 });
 
-app.get('/UIdata', function (request, response) {
-  response.send(allData);
+app.get("/UIdata", function (req, res) {
+  res.send(allData);
 });
