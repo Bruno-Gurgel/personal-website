@@ -25,25 +25,32 @@ button.addEventListener('click', () => {
   document.querySelector('.loader').style.display = 'inline-block';
   document.querySelector('.loader').scrollIntoView({ behavior: 'smooth' });
 
-  getApiKey().then(() => {
-    const baseUrl = `https://api.openweathermap.org/data/2.5/weather?zip=${newZip},&appid=${apiKey}&units=metric`;
-    if (newFeeling !== '' && newZip !== '') {
-      displayWeather(baseUrl)
-        .then((data) => {
-          return postData(
-            'https://bmg-personal-website-server.herokuapp.com/data',
-            {
-              date: newDate,
-              temperature: data.main.temp,
-              user_response: newFeeling,
-            }
-          );
-        })
-        .then(() => updateUI());
-    } else {
-      alert('Please enter Zip code and your feelings');
-    }
-  });
+  getApiKey()
+    .then(() => {
+      if (newFeeling !== '' && newZip !== '') {
+        return displayWeather();
+      } else {
+        return alert('Please enter Zip code and your feelings');
+      }
+    })
+    .then((data) => {
+      return postData(
+        'https://bmg-personal-website-server.herokuapp.com/data',
+        {
+          date: newDate,
+          temperature: data.main.temp,
+          user_response: newFeeling,
+        }
+      );
+    })
+    .then(() => updateUI())
+    .catch(() => {
+      document.getElementById('entryHolder').innerHTML =
+        '<h3 class="error"><strong>Error!</strong> Sorry, there was an internal error, can you please reload the page and try again?</h3>';
+      document.querySelector('.loader').style.display = '';
+      document.getElementById('entryHolder').style.display = 'block';
+      return false;
+    });
 
   async function getApiKey() {
     try {
@@ -63,8 +70,9 @@ button.addEventListener('click', () => {
   }
 
   /* Function to GET Web API Data */
-  async function displayWeather(url) {
-    const request = await fetch(url);
+  async function displayWeather() {
+    const baseUrl = `https://api.openweathermap.org/data/2.5/weather?zip=${newZip},&appid=${apiKey}&units=metric`;
+    const request = await fetch(baseUrl);
     if (request.ok) {
       try {
         const data = await request.json();
