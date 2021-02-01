@@ -53,20 +53,12 @@ button.addEventListener('click', () => {
     });
 
   async function getApiKey() {
-    try {
-      const req = await fetch(
-        'https://bmg-personal-website-server.herokuapp.com/api'
-      );
-      const data = await req.json();
-      apiKey = data.openWeatherKey;
-      return apiKey;
-    } catch (e) {
-      document.getElementById('entryHolder').innerHTML =
-        '<h3 class="error"><strong>Error!</strong> Sorry, there was an internal error, can you please reload the page and try again?</h3>';
-      document.querySelector('.loader').style.display = '';
-      document.getElementById('entryHolder').style.display = 'block';
-      return false;
-    }
+    const req = await fetch(
+      'https://bmg-personal-website-server.herokuapp.com/api'
+    );
+    const data = await req.json();
+    apiKey = data.openWeatherKey;
+    return apiKey;
   }
 
   /* Function to GET Web API Data */
@@ -74,12 +66,8 @@ button.addEventListener('click', () => {
     const baseUrl = `https://api.openweathermap.org/data/2.5/weather?zip=${newZip},&appid=${apiKey}&units=metric`;
     const request = await fetch(baseUrl);
     if (request.ok) {
-      try {
-        const data = await request.json();
-        return data;
-      } catch (error) {
-        return alert('There was an error:', error.message);
-      }
+      const data = await request.json();
+      return data;
     } else if (request.status === 404) {
       document.getElementById('entryHolder').innerHTML =
         '<h3 class="error"><strong>Error!</strong> Sorry, city not found. Are you sure the Zip is from USA?</h3>';
@@ -106,16 +94,8 @@ button.addEventListener('click', () => {
       body: JSON.stringify(data),
     });
 
-    try {
-      const newData = await response.json();
-      return newData;
-    } catch (e) {
-      document.getElementById('entryHolder').innerHTML =
-        '<h3 class="error"><strong>Error!</strong> Sorry, there was an internal error, can you please reload the page and try again?</h3>';
-      document.querySelector('.loader').style.display = '';
-      document.getElementById('entryHolder').style.display = 'block';
-      return false;
-    }
+    const newData = await response.json();
+    return newData;
   }
 
   /* Dynamically updating the UI */
@@ -125,28 +105,20 @@ button.addEventListener('click', () => {
     const contentList = document.querySelector('#content_list');
     const entryHolder = document.querySelector('#entryHolder');
 
-    try {
-      const request = await fetch(
-        'https://bmg-personal-website-server.herokuapp.com/UIdata'
-      );
-      const allData = await request.json();
-      const { weatherAppData } = allData;
-      dateList.innerHTML = `<li class="query_item">Date: ${weatherAppData.date}</li>`;
-      tempList.innerHTML = `<li class="query_item">Temperature: ${weatherAppData.temperature.toFixed(
-        0
-      )}ºC</li>`;
-      contentList.innerHTML = `<li class="query_item">Feeling: ${weatherAppData.user_response}</li>`;
-      document.querySelector('.loader').style.display = '';
-      document.querySelector('#entryHolder').style.display = '';
-      // Showing the results div when the button is clicked
-      entryHolder.style.display = 'grid';
-      entryHolder.scrollIntoView({ behavior: 'smooth' });
-    } catch (e) {
-      document.getElementById('entryHolder').innerHTML =
-        '<h3 class="error"><strong>Error!</strong> Sorry, there was an internal error, can you please reload the page and try again?</h3>';
-      document.querySelector('.loader').style.display = '';
-      document.getElementById('entryHolder').style.display = 'block';
-      return false;
-    }
+    const request = await fetch(
+      'https://bmg-personal-website-server.herokuapp.com/UIdata'
+    );
+    const allData = await request.json();
+    const { weatherAppData } = allData;
+    dateList.innerHTML = `<li class="query_item">Date: ${weatherAppData.date}</li>`;
+    tempList.innerHTML = `<li class="query_item">Temperature: ${weatherAppData.temperature.toFixed(
+      0
+    )}ºC</li>`;
+    contentList.innerHTML = `<li class="query_item">Feeling: ${weatherAppData.user_response}</li>`;
+    document.querySelector('.loader').style.display = '';
+    document.querySelector('#entryHolder').style.display = '';
+    // Showing the results div when the button is clicked
+    entryHolder.style.display = 'grid';
+    entryHolder.scrollIntoView({ behavior: 'smooth' });
   }
 });
