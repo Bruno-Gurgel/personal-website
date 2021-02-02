@@ -44,12 +44,24 @@ button.addEventListener('click', () => {
       );
     })
     .then(() => updateUI())
-    .catch(() => {
-      document.getElementById('entryHolder').innerHTML =
-        '<h3 class="error"><strong>Error!</strong> Sorry, there was an internal error, can you please reload the page and try again?</h3>';
-      document.querySelector('.loader').style.display = '';
-      document.getElementById('entryHolder').style.display = 'block';
-      return false;
+    .catch((error) => {
+      if (error.message === 'City not found') {
+        document.getElementById('entryHolder').innerHTML =
+          '<h3 class="error"><strong>Error!</strong> Sorry, city not found. Are you sure the Zip is from the USA?</h3>';
+        document.querySelector('.loader').style.display = '';
+        document.getElementById('entryHolder').style.display = 'block';
+      } else if (error.message === 'Error fetching weather') {
+        document.getElementById('entryHolder').innerHTML =
+          '<h3 class="error"><strong>Error!</strong> Sorry, there was an error fetching the weather data, can you please reload the page and try again?</h3>';
+        document.querySelector('.loader').style.display = '';
+        document.getElementById('entryHolder').style.display = 'block';
+      } else {
+        document.getElementById('entryHolder').innerHTML =
+          '<h3 class="error"><strong>Error!</strong> Sorry, there was an internal error, can you please reload the page and try again?</h3>';
+        document.querySelector('.loader').style.display = '';
+        document.getElementById('entryHolder').style.display = 'block';
+        return false;
+      }
     });
 
   async function getApiKey() {
@@ -69,17 +81,9 @@ button.addEventListener('click', () => {
       const data = await request.json();
       return data;
     } else if (request.status === 404) {
-      document.getElementById('entryHolder').innerHTML =
-        '<h3 class="error"><strong>Error!</strong> Sorry, city not found. Are you sure the Zip is from USA?</h3>';
-      document.querySelector('.loader').style.display = '';
-      document.getElementById('entryHolder').style.display = 'block';
-      return false;
+      throw new Error('City not found');
     } else {
-      document.getElementById('entryHolder').innerHTML =
-        '<h3 class="error"><strong>Error!</strong> Sorry, there was an error fetching the weather data, can you please reload the page and try again?</h3>';
-      document.querySelector('.loader').style.display = '';
-      document.getElementById('entryHolder').style.display = 'block';
-      return false;
+      throw new Error('Error fetching weather');
     }
   }
 
