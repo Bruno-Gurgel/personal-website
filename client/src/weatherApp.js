@@ -21,6 +21,7 @@ button.addEventListener('click', () => {
   const newZip = document.getElementById('zip').value;
   const newFeeling = document.getElementById('feeling').value;
 
+  document.getElementById('error').style.display = '';
   document.querySelector('#entryHolder').style.display = 'none';
   document.querySelector('.loader').style.display = 'inline-block';
   document.querySelector('.loader').scrollIntoView({ behavior: 'smooth' });
@@ -46,21 +47,20 @@ button.addEventListener('click', () => {
     .then(() => updateUI())
     .catch((error) => {
       if (error.message === 'City not found') {
-        document.getElementById('entryHolder').innerHTML =
+        document.getElementById('error').innerHTML =
           '<h3 class="error"><strong>Error!</strong> Sorry, city not found. Are you sure the Zip is from the USA?</h3>';
         document.querySelector('.loader').style.display = '';
-        document.getElementById('entryHolder').style.display = 'block';
+        document.getElementById('error').style.display = 'block';
       } else if (error.message === 'Error fetching weather') {
-        document.getElementById('entryHolder').innerHTML =
+        document.getElementById('error').innerHTML =
           '<h3 class="error"><strong>Error!</strong> Sorry, there was an error fetching the weather data, can you please reload the page and try again?</h3>';
         document.querySelector('.loader').style.display = '';
-        document.getElementById('entryHolder').style.display = 'block';
+        document.getElementById('error').style.display = 'block';
       } else {
-        document.getElementById('entryHolder').innerHTML =
+        document.getElementById('error').innerHTML =
           '<h3 class="error"><strong>Error!</strong> Sorry, there was an internal error, can you please reload the page and try again?</h3>';
         document.querySelector('.loader').style.display = '';
-        document.getElementById('entryHolder').style.display = 'block';
-        return false;
+        document.getElementById('error').style.display = 'block';
       }
     });
 

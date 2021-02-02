@@ -143,6 +143,10 @@ body {
   }
 }
 
+.main__error {
+  display: none;
+}
+
 .low__main {
   grid-area: recent;
   display: grid;
