@@ -66,6 +66,10 @@ main {
       transform: rotate(1800deg);
     }
   }
+
+  .main__error {
+    display: none;
+  }
   .error {
     border: 2px solid #ebccd1;
     background-color: #f2dede;
