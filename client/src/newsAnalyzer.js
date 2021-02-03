@@ -1,8 +1,4 @@
-import './style/news_analyzer/base.scss';
-import './style/news_analyzer/form.scss';
-import './style/news_analyzer/footer.scss';
-import './style/news_analyzer/header.scss';
-import './style/news_analyzer/responsive.scss';
+import './style/news_analyzer/main.scss';
 
 // Wait Dom to be loaded - Better for Jest testing
 document.addEventListener('DOMContentLoaded', function () {
@@ -25,6 +21,9 @@ document.addEventListener('DOMContentLoaded', function () {
     let apiKey = '';
     let data = {};
 
+    const errorDiv = document.getElementById('error');
+
+    errorDiv.style.display = '';
     document.getElementById('results').style.display = 'none';
     document.querySelector('.loader').style.display = 'inline-block';
     document.querySelector('.loader').scrollIntoView({ behavior: 'smooth' });
@@ -44,46 +43,40 @@ document.addEventListener('DOMContentLoaded', function () {
             }
           );
         })
-        .then(() => updateUI());
+        .then(() => updateUI())
+        .catch(() => {
+          errorDiv.innerHTML =
+            '<h3 class="error"><strong>Error!</strong> Sorry, there was an internal error, can you please reload the page and try again?</h3>';
+          document.querySelector('.loader').style.display = '';
+          errorDiv.style.display = 'block';
+          return false;
+        });
     } else {
-      document.querySelector('.loader').style.display = '';
-      document.querySelector('.main__bottom').innerHTML =
+      errorDiv.innerHTML =
         '<h3 class="error"><strong>Error!</strong> Please insert a valid URL</h3>';
+      document.querySelector('.loader').style.display = '';
+      errorDiv.style.display = 'block';
       return false;
     }
 
     async function getApiKey() {
-      try {
-        const req = await fetch(
-          'https://bmg-personal-website-server.herokuapp.com/api'
-        );
-        data = await req.json();
-        apiKey = data.meaningCloudKey;
-        return apiKey;
-      } catch (e) {
-        document.querySelector('.loader').style.display = '';
-        document.querySelector('.main__bottom').innerHTML =
-          '<h3 class="error"><strong>Error!</strong> Sorry, there was an internal error, can you please reload the page and try again?</h3>';
-        return false;
-      }
+      const req = await fetch(
+        'https://bmg-personal-website-server.herokuapp.com/api'
+      );
+      data = await req.json();
+      apiKey = data.meaningCloudKey;
+      return apiKey;
     }
 
     async function getTextAnalysis(url, key, formURL) {
-      try {
-        const res = await fetch(
-          `${url}key=${key}&of=json.&model=general&lang=en&url=${formURL}`
-        );
-        const apiResponse = await res.json();
-        if (apiResponse.status.code === '212') {
-          throw new Error();
-        } else {
-          return apiResponse;
-        }
-      } catch (e) {
-        document.querySelector('.loader').style.display = '';
-        document.querySelector('.main__bottom').innerHTML =
-          '<h3 class="error"><strong>Error!</strong> Sorry, there was an internal error, can you please reload the page and try again?</h3>';
-        return false;
+      const res = await fetch(
+        `${url}key=${key}&of=json.&model=general&lang=en&url=${formURL}`
+      );
+      const apiResponse = await res.json();
+      if (apiResponse.status.code === '212') {
+        throw new Error();
+      } else {
+        return apiResponse;
       }
     }
 
@@ -98,48 +91,34 @@ document.addEventListener('DOMContentLoaded', function () {
         body: JSON.stringify(data),
       });
 
-      try {
-        const newData = await res.json();
-        return newData;
-      } catch (e) {
-        document.querySelector('.loader').style.display = '';
-        document.querySelector('.main__bottom').innerHTML =
-          '<h3 class="error"><strong>Error!</strong> Sorry, there was an internal error, can you please reload the page and try again?</h3>';
-        return false;
-      }
+      const newData = await res.json();
+      return newData;
     }
 
     async function updateUI() {
       const results = document.getElementById('results');
 
-      try {
-        const req = await fetch(
-          'https://bmg-personal-website-server.herokuapp.com/UIdata'
-        );
-        const allData = await req.json();
-        const { newsAnalyzerData } = allData;
-        if (Object.entries(newsAnalyzerData).length === 0) {
-          document.querySelector('.loader').style.display = '';
-          results.style.display = '';
-          results.innerHTML =
-            "<h2 class='error'><strong>Sorry</strong>. This page cannot be analyzed because it is blocked.</h2>";
-          return false;
-        } else {
-          results.innerHTML = `
+      const req = await fetch(
+        'https://bmg-personal-website-server.herokuapp.com/UIdata'
+      );
+      const allData = await req.json();
+      const { newsAnalyzerData } = allData;
+      if (Object.entries(newsAnalyzerData).length === 0) {
+        document.querySelector('.loader').style.display = '';
+        results.style.display = '';
+        results.innerHTML =
+          "<h2 class='error'><strong>Sorry</strong>. This page cannot be analyzed because it is blocked.</h2>";
+        return false;
+      } else {
+        results.innerHTML = `
           <li class="results__item"><span class="api__title">URL:</span> ${formText}</li>
           <li class="results__item"><span class="api__title">Agreement:</span> ${newsAnalyzerData.agreement};</li>
           <li class="results__item"><span class="api__title">Subjectivity:</span> ${newsAnalyzerData.subjectivity};</li>
           <li class="results__item"><span class="api__title">Confidence:</span> ${newsAnalyzerData.confidence}%;</li>
           <li class="results__item"><span class="api__title">Irony:</span> ${newsAnalyzerData.irony}.</li>`;
-          document.querySelector('.loader').style.display = '';
-          document.getElementById('results').style.display = '';
-          results.scrollIntoView({ behavior: 'smooth' });
-        }
-      } catch (e) {
         document.querySelector('.loader').style.display = '';
-        document.querySelector('.main__bottom').innerHTML =
-          '<h3 class="error"><strong>Error!</strong> Sorry, there was an internal error, can you please reload the page and try again?</h3>';
-        return false;
+        document.getElementById('results').style.display = '';
+        results.scrollIntoView({ behavior: 'smooth' });
       }
     }
   });
