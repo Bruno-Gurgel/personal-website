@@ -69,14 +69,14 @@ main {
 
   .main__error {
     display: none;
-  }
-  .error {
-    border: 2px solid #ebccd1;
-    background-color: #f2dede;
-    color: #a94442;
-    padding: 20px;
-    text-align: center;
-    font-weight: normal;
+    .error {
+      border: 2px solid #ebccd1;
+      background-color: #f2dede;
+      color: #a94442;
+      padding: 20px;
+      text-align: center;
+      font-weight: normal;
+    }
   }
 }
 
