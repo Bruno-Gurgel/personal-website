@@ -8,28 +8,28 @@
 </head>
 
 <body>
-  <a href="#main-content" class="skip-link">Skip to main content</a>
-  <div class="grid-container-about">
-    <header class="nav-top">
-      <ul class="menu">
-        <li><a href="blog.html" class="link-nav focus">Blog Template</a></li>
-        <li class="item home-link">
-          <a class="link-nav focus" href="index.html">Return to Website</a>
+  <a href="#first-content" class="skip-link">Skip to main content</a>
+  <div class="grid--about">
+    <header class="header">
+      <ul class="header__menu">
+        <li><a href="blog.html" class="header__link --focus">Blog Template</a></li>
+        <li class="header__item --home-link">
+          <a class="header__link --focus" href="index.html">Return to Website</a>
         </li>
-        <li class="item">
-          <a class="link-nav focus" href="./aboutBlog.html">About</a>
+        <li class="header__item">
+          <a class="header__link --focus" href="./aboutBlog.html">About</a>
         </li>
       </ul>
     </header>
-    <main class="about-main">
-      <h1 class="hdn-center" id="main-content" tabindex="-1">README</h1>
+    <main class="main--about">
+      <h1 class="main--about__heading" id="first-content" tabindex="-1">README</h1>
       <h2>Personal Blog Website - Udacity</h2>
       <p><u>Project of the Nanodegree Course 'Front End Web Development'.</u></p>
-      <h3 class="hdn-center">Details</h3>
-      <h4 class="hdn-center">Content</h4>
+      <h3 class="main--about__heading">Details</h3>
+      <h4 class="main--about__heading">Content</h4>
       <h5>HTML</h5>
       <p>The blog has 3 HTML pages:</p>
-      <ol class="about-ls">
+      <ol class="main--about__list">
         <li>Home page (index.html);</li>
         <li>Home page (index.html);</li>
         <li>Home page (index.html);</li>
@@ -40,24 +40,24 @@
         On the main CSS file is the code that is the same for every page.</p>
       <h5>Java Script</h5>
       <p>I have not used JS in this website because of the purpose of the project</p>
-      <h4 class="hdn-center"> Responsiveness</h4>
+      <h4 class="main--about__heading"> Responsiveness</h4>
       <!--CHANGE COLOR OF LINKS-->
       <p>I used the viewport meta tag - <a
-          href="https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag" class="about-link"
+          href="https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag" class="main--about__link"
           aria-label="More information about viewport meta tag" target="_blank">More information here</a></p>
-      <p>Aaand the @media queries - <a href="https://www.w3schools.com/css/css_rwd_mediaqueries.aspg" class="about-link"
+      <p>Aaand the @media queries - <a href="https://www.w3schools.com/css/css_rwd_mediaqueries.aspg" class="main__link"
           aria-label="More information about media queries" target="_blank">More information here</a></p>
-      <h3 class="hdn-center">Contribution</h3>
+      <h3 class="main--about__heading">Contribution</h3>
       <p><b>Since I am learning Front end Web Development, any tips or suggestions are greatly appreciated.</b>
       </p>
     </main>
     <footer class="footer">
       <h1>Contact</h1>
-      <form class="newsletter" method="POST">
-        <h2 aria-owns="label-email text" class="subscribe-ft">Subscribe to our newsletter</h2>
-        <label class="label-email" for="text">Enter your email:</label>
-        <input type="email" id="text" name="E-mail" class="focus">
-        <input type="submit" id="send" aria-label="Submit" value="Submit" class="focus">
+      <form class="footer__newsletterr" method="POST">
+        <h2 aria-owns="label-email text" class="footer__subscribe">Subscribe to our newsletter</h2>
+        <label class="footer__label-email" for="text">Enter your email:</label>
+        <input type="email" id="text" name="E-mail" class="--focus">
+        <input type="submit" id="send" aria-label="Submit" value="Submit" class="--focus">
       </form>
     </footer>
   </div>
