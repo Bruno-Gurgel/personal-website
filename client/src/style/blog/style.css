@@ -1,9 +1,3 @@
-/* Importing responsive layouts */
-@import './small_phone.css' (max-width: 320px);
-@import './phone.css' (min-width: 321px) and (max-width: 599px);
-@import './tablet.css' (min-width: 600px) and (max-width: 900px);
-@import './desktop.css' (min-width: 901px);
-
 /* Universal code */
 html {
   font-family: 'Indie Flower', cursive;

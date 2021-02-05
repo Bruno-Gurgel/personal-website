@@ -1,7 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 
 @import './style.css';
-@import './small_phone.css';
-@import './phone.css';
-@import './tablet.css';
-@import './desktop.css';
+@import './responsive.css';
