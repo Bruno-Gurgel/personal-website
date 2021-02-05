@@ -1,7 +1,7 @@
 /* Small Phone layout */
 @media (max-width: 320px) {
   /* Home page */
-  .grid-container {
+  .grid {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: min-content;
@@ -13,7 +13,7 @@
       'ft';
   }
 
-  .menu {
+  .header__menu {
     list-style-type: none;
     display: flex;
     flex-direction: column;
@@ -30,22 +30,22 @@
     font-size: 2rem;
   }
 
-  .feat-post-link {
+  .featured-post__link {
     text-decoration: none;
     color: #ffffff;
   }
 
-  .hd-feat-post {
+  .featured-post__heading {
     color: #dcbff3;
     padding-top: 0px;
   }
 
-  .txt-feat-post {
+  .featured-post__description {
     font-size: 1.5rem;
     padding-top: 0px;
   }
 
-  .main-home {
+  .main--home {
     grid-area: main;
     display: flex;
     flex-direction: column;
@@ -53,7 +53,7 @@
     margin: 30px 30px;
   }
 
-  .label-email {
+  .footer__label-email {
     /* Hiding the label because it was not fitting is small mobile screen */
     /* Hiding this way for accessibility reasons (screen reader) */
     border: 0;
@@ -67,7 +67,7 @@
   }
 
   /* About page */
-  .grid-container-about {
+  .grid--about {
     display: grid;
     grid-template-columns: 1fr;
     grid-auto-rows: min-content;
@@ -129,7 +129,7 @@
 /* Phone layout */
 @media (max-width: 599px) {
   /* Home page */
-  .grid-container {
+  .grid {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: min-content;
@@ -141,7 +141,7 @@
       'ft';
   }
 
-  .menu {
+  .header__menu {
     list-style-type: none;
     display: flex;
     flex-direction: column;
@@ -158,22 +158,22 @@
     font-size: 2.5rem;
   }
 
-  .feat-post-link {
+  .featured-post__link {
     text-decoration: none;
     color: #ffffff;
   }
 
-  .hd-feat-post {
+  .featured-post__heading {
     color: #dcbff3;
     padding-top: 0px;
   }
 
-  .txt-feat-post {
+  .featured-post__description {
     font-size: 1.5rem;
     padding-top: 0px;
   }
 
-  .main-home {
+  .main--home {
     grid-area: main;
     display: flex;
     flex-direction: column;
@@ -182,7 +182,7 @@
   }
 
   /* About page */
-  .grid-container-about {
+  .grid--about {
     display: grid;
     grid-template-columns: 1fr;
     grid-auto-rows: min-content;
@@ -244,7 +244,7 @@
 /* Tablet layout */
 @media (min-width: 600px) and (max-width: 900px) {
   /* Home page */
-  .grid-container {
+  .grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-auto-rows: min-content;
@@ -255,7 +255,7 @@
       'ft ft';
   }
 
-  .menu {
+  .header__menu {
     list-style-type: none;
     display: flex;
     flex-direction: column;
@@ -272,22 +272,22 @@
     font-size: 2.5rem;
   }
 
-  .feat-post-link {
+  .featured-post__link {
     text-decoration: none;
     color: #ffffff;
   }
 
-  .hd-feat-post {
+  .featured-post__heading {
     color: #dcbff3;
     padding-top: 0px;
   }
 
-  .txt-feat-post {
+  .featured-post__description {
     font-size: 1.5rem;
     padding-top: 0px;
   }
 
-  .main-home {
+  .main--home {
     grid-area: main;
     display: flex;
     flex-direction: row;
@@ -298,12 +298,12 @@
     justify-content: space-between;
   }
 
-  .article-card {
+  .main__article-card {
     width: 45%;
   }
 
   /* About page */
-  .grid-container-about {
+  .grid--about {
     display: grid;
     grid-template-columns: 1fr;
     grid-auto-rows: min-content;
@@ -364,7 +364,7 @@
 /* Desktop layout */
 @media (min-width: 901px) {
   /* Home page */
-  .grid-container {
+  .grid {
     box-sizing: border-box;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -376,11 +376,11 @@
       'ft ft ft';
   }
 
-  .nav-top {
+  .header {
     padding: 0px;
   }
 
-  .menu {
+  .header__menu {
     list-style-type: none;
     display: flex;
     flex-direction: row;
@@ -391,13 +391,13 @@
     box-sizing: border-box;
   }
 
-  .link-nav {
+  .header__link {
     padding: 0px;
     display: inline-block;
     font-size: 1.5rem;
   }
 
-  .item {
+  .header__item {
     padding: 0px;
   }
 
@@ -408,22 +408,22 @@
     font-size: 2.5rem;
   }
 
-  .feat-post-link {
+  .featured-post__link {
     text-decoration: none;
     color: #ffffff;
   }
 
-  .hd-feat-post {
+  .featured-post__heading {
     color: #dcbff3;
     padding-top: 0px;
   }
 
-  .txt-feat-post {
+  .featured-post__description {
     font-size: 1.5rem;
     padding-top: 0px;
   }
 
-  .main-home {
+  .main--home {
     grid-area: main;
     display: flex;
     flex-direction: row;
@@ -434,12 +434,12 @@
     margin: 30px 20px;
   }
 
-  .article-card {
+  .main__article-card {
     width: 30%;
   }
 
   /* About page */
-  .grid-container-about {
+  .grid--about {
     display: grid;
     grid-template-columns: 1fr;
     grid-auto-rows: min-content;
