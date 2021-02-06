@@ -15,8 +15,8 @@ for (const image of fallbackImages) {
   image.src = fallbackBlogPostImage;
 }
 
-const avatar = document.querySelector('.avatar-img--webp');
+const avatar = document.querySelector('.main__avatar__img--webp');
 avatar.srcset = blogAvatarImage;
 
-const fallbackAvatar = document.querySelector('.avatar-img--fallback');
+const fallbackAvatar = document.querySelector('.main__avatar__img--fallback');
 fallbackAvatar.src = fallbackBlogAvatarImage;
