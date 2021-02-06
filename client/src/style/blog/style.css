@@ -129,7 +129,7 @@ body {
 }
 
 /* Blog post page */
-.heading {
+.main--post__heading {
   text-align: center;
   font-size: 3rem;
   text-decoration: underline;
@@ -137,42 +137,42 @@ body {
   font-weight: bold;
 }
 
-.month-list {
+.aside--post__month-list {
   list-style-type: upper-roman;
 }
 
-.month {
+.aside--post__month {
   color: #ffffff;
 }
 
-.author-post {
+.main--post__author {
   padding: 0px;
   border-bottom: 2px dotted #ffffff;
   margin-left: 5px;
 }
 
-.avatar-img--webp,
-.avatar-img--fallback {
+.main__avatar__img--webp,
+.main__avatar__img--fallback {
   width: 10%;
   border-radius: 50%;
   margin: 0px;
   padding: 0px;
 }
 
-.author-info {
+.main__author__info {
   margin: 0px;
   padding: 0px;
   color: #b4b9bd;
 }
 
-.author-description {
+.main__author__description {
   margin: 0px;
   padding: 0px;
   padding-bottom: 10px;
   color: #b4b9bd;
 }
 
-.rel-post-link {
+.related__link {
   color: #ffffff;
 }
 
@@ -181,18 +181,18 @@ body {
   border-bottom: 2px inset #ffffff;
 }
 
-.little-heading {
+.main--post__heading--h2 {
   text-align: center;
   color: #dcbff3;
   text-decoration: underline;
   font-weight: bold;
 }
 
-.social-list {
+.social-media__lists {
   list-style-type: square;
 }
 
-.social-items {
+.social-media__items {
   text-decoration: none;
   color: #ffffff;
 }
