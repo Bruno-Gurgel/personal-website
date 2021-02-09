@@ -26,7 +26,7 @@ const createNavBar = () => {
 
   for (const section of sections) {
     const newElement = document.createElement('li');
-    newElement.innerHTML = `<a class="menu__link" id="menu__${section.id}" href="#${section.id}"> ${section.dataset.nav}</a>`;
+    newElement.innerHTML = `<a class="nav__link" id="menu__${section.id}" href="#${section.id}"> ${section.dataset.nav}</a>`;
     fragment.appendChild(newElement);
   }
   navBar.appendChild(fragment);
@@ -38,7 +38,7 @@ createNavBar();
 // Showing the sections content only when the linked Nav button is clicked
 const showSection = () => {
   const navBar = document.querySelector('#navbar__list');
-  const footer = document.querySelector('.page__footer');
+  const footer = document.querySelector('.footer');
 
   navBar.addEventListener('click', (event) => {
     event.preventDefault();
@@ -59,7 +59,7 @@ showSection();
 
 // Highlights the clicked menu item. Initially no item is highlighted
 const activeItem = () => {
-  const menuLink = document.querySelectorAll('.menu__link');
+  const menuLink = document.querySelectorAll('.nav__link');
 
   for (const item of menuLink) {
     item.addEventListener('click', function (event) {
@@ -82,7 +82,7 @@ If the banner's motives list is on the viewport, no menu item is highlighted
 But if the user scrolls back to the section it gets highlighted again 
 */
 const observingEvent = () => {
-  const bannerMotives = document.querySelector('.motives__list__banner');
+  const bannerMotives = document.querySelector('.banner__motives__list');
 
   const options = {
     root: document.querySelector('#viewport'), // default
@@ -108,7 +108,7 @@ const toggleMenu = (() => {
   /* eslint-enable */
   // Menu animation
 
-  const mobileMenu = document.querySelector('.mobile__menu');
+  const mobileMenu = document.querySelector('.nav--mobile__menu');
   const navBar = document.querySelector('#navbar__list');
 
   mobileMenu.addEventListener('click', function () {
