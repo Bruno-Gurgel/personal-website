@@ -8,30 +8,30 @@
 </head>
 
 <body>
-  <a href="#main__content" class="skip-link">Skip to main content</a>
-  <div class="grid__container">
-    <nav class="navbar__menu">
+  <a href="#first__content" class="skip-link">Skip to main content</a>
+  <div class="grid">
+    <nav class="nav">
       <!--Mobile menu - won't appear on Desktop view-->
-      <div class="mobile__menu">
+      <div class="nav--mobile__menu" onclick="toggleMenu(this)">
         <div class="bar1"></div>
         <div class="bar2"></div>
         <div class="bar3"></div>
       </div>
-      <ul id="navbar__list" class="menu__list"></ul>
+      <ul id="navbar__list" class="nav__list"></ul>
     </nav>
-    <div class="banner__hero" role="banner">
+    <div class="banner" role="banner">
       <a href="index.html" class="home__link">Return to Website</a>
-      <h1 class="heading__page"><a href="landingPage.html" class="heading__page" id="main__content"> Landing Page </a>
+      <h1 class="heading__page"><a href="index.html" class="page__heading" id="first__content"> Landing Page </a>
       </h1>
       <div class="banner__center">
-        <ul class="motives__list__banner">
+        <ul class="banner__motives__list">
           <li class="motives__item">Great motive</li>
           <li class="motives__item">Great motive</li>
           <li class="motives__item">Great motive</li>
           <li class="motives__item">Great motive</li>
         </ul>
         <!--This review will only appear here on Desktop view-->
-        <q class="quote__review"><b>Great review from one of your customers</b><br><br> Lorem ipsum dolor sit
+        <q class="banner__quote"><b>Great review from one of your customers</b><br><br> Lorem ipsum dolor sit
           amet,
           consectetur adipiscing elit. Morbi fermentum metus faucibus lectus
           pharetra dapibus. Suspendisse potenti. Aenean aliquam elementum mi, ac euismod augue. Donec eget
@@ -40,14 +40,14 @@
           quam nunc eu augue. Pellentesque maximus imperdiet elit a pharetra. Duis lectus mi, aliquam in
           mi quis, aliquam porttitor lacus. Morbi a tincidunt felis.</q>
       </div>
-      <button type="button" class="page__button" id="banner__button">Buy here!</button>
-      <p class="introduction__text">Why someone would buy your product? (up to 5 lines)</p>
+      <button type="button" class="button" id="banner-button">Buy here!</button>
+      <p class="main__introduction">Why someone would buy your product? (up to 5 lines)</p>
       <!-- <button type="button" class="page__button" id=buttonContent>More info here!</button> -->
     </div>
     <!--The sections will only appear when the appropriate button is clicked-->
-    <main class="page__main">
-      <section id="section1" data-nav="More motives" class="section__box section__1">
-        <h2 class=" heading__section">More motives</h2>
+    <main class="main">
+      <section id="section1" data-nav="More motives" class="main__section --section__1">
+        <h2 class="section__heading">More motives</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum metus faucibus lectus
           pharetra dapibus. Suspendisse potenti. Aenean aliquam elementum mi, ac euismod augue. Donec eget
           lacinia ex. Phasellus imperdiet porta orci eget mollis. Sed convallis sollicitudin mauris ac
@@ -75,8 +75,8 @@
           mi dui, sagittis in erat id, rutrum efficitur nisi. Fusce varius risus enim, vitae accumsan eros
           tincidunt sit amet.</p>
       </section>
-      <section id="section2" data-nav="Images" class="section__box section__2">
-        <h2 class="heading__section">Images/ Screenshots of your product</h2>
+      <section id="section2" data-nav="Images" class="main__section --section__2">
+        <h2 class="section__heading">Images/ Screenshots of your product</h2>
         <picture>
           <source srcset="" alt="Product template" type="image/webp" class="product__image --webp">
           <img src="" alt="Product template" class="product__image --fallback">
@@ -106,8 +106,8 @@
           mi dui, sagittis in erat id, rutrum efficitur nisi. Fusce varius risus enim, vitae accumsan eros
           tincidunt sit amet.</p>
       </section>
-      <section id="section3" data-nav="Reviews" class="section__box section__3">
-        <h2 class="heading__section">Good reviews of your product</h2>
+      <section id="section3" data-nav="Reviews" class="main__section --section__3">
+        <h2 class="section__heading">Good reviews of your product</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum metus faucibus lectus
           pharetra dapibus. Suspendisse potenti. Aenean aliquam elementum mi, ac euismod augue. Donec eget
           lacinia ex. Phasellus imperdiet porta orci eget mollis. Sed convallis sollicitudin mauris ac
@@ -134,8 +134,8 @@
           mi dui, sagittis in erat id, rutrum efficitur nisi. Fusce varius risus enim, vitae accumsan eros
           tincidunt sit amet.</p>
       </section>
-      <section id="section4" data-nav="Maybe later" class="section__box section__4">
-        <h2 class="heading__section">Maybe later?</h2>
+      <section id="section4" data-nav="Maybe later" class="main__section --section__4">
+        <h2 class="section__heading">Maybe later?</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum metus faucibus lectus
           pharetra dapibus. Suspendisse potenti. Aenean aliquam elementum mi, ac euismod augue. Donec eget
           lacinia ex. Phasellus imperdiet porta orci eget mollis. Sed convallis sollicitudin mauris ac
@@ -160,16 +160,16 @@
           non tristique lacus luctus ac. Integer in ipsum eget nisl pellentesque imperdiet ac vel sapien.
           Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In
           mi dui, sagittis in erat id, rutrum efficitur nisi.</p>
-        <button type="button" class="page__button">Let's keep
+        <button type="button" class="button">Let's keep
           talking</button>
       </section>
     </main>
-    <footer class="page__footer">
-      <h1 class="heading__section">Add me!</h1>
-      <p class="contact__text"><a aria-label="Add me on GitHub" href="https://github.com/bruno-gurgel"
-          class="contact">Github</a></p>
-      <p class="contact__text"><a aria-label="Add me on Linkedin" href="https://www.linkedin.com/in/bruno-gurgel/"
-          class="contact">Linkedin</a>
+    <footer class="footer">
+      <h1 class="footer__heading">Add me!</h1>
+      <p class="footer__social-media"><a aria-label="Add me on GitHub" href="https://github.com/bruno-gurgel"
+          class="footer__contact">Github</a></p>
+      <p class="footer__social-media"><a aria-label="Add me on Linkedin"
+          href="https://www.linkedin.com/in/bruno-gurgel/" class="footer__contact">Linkedin</a>
       </p>
     </footer>
   </div>
