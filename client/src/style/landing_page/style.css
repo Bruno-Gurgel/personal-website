@@ -59,7 +59,7 @@ p {
   background-color: #657482;
 }
 
-.grid__container {
+.grid {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: min-content;
@@ -71,17 +71,17 @@ p {
   max-width: 100%;
 }
 
-.navbar__menu {
+.nav {
   grid-area: nav;
   width: 100%;
 }
 
-.menu__list {
+.nav__list {
   font-family: 'Henny Penny', cursive;
   list-style-type: none;
 }
 
-.menu__link {
+.nav__link {
   text-decoration: none;
   color: #000000;
   font-size: 1.3rem;
@@ -91,7 +91,7 @@ p {
 }
 
 /* Creating the sandwich menu */
-.mobile__menu {
+.nav--mobile__menu {
   display: inline-block;
   cursor: pointer;
   margin-left: 5px;
@@ -123,20 +123,20 @@ p {
 }
 
 /* Banner */
-.banner__hero {
+.banner {
   text-align: center;
   grid-area: banner;
   box-shadow: 5px 5px 20px 20px #ccc;
   margin: 15px 0;
 }
 
-.motives__item {
+.banner__motives__list {
   list-style-image: url(../../img/landing_page/tick-mark.svg);
   font-weight: bold;
 }
 
 /* Main content */
-.heading__page {
+.page__heading {
   font-family: 'Henny Penny', cursive;
   font-size: 4rem;
   text-align: center;
@@ -146,7 +146,7 @@ p {
   margin: 0px;
 }
 
-.page__button {
+.button {
   border: 2px inset #000000;
   padding: 12px;
   margin: 20px 0;
@@ -156,18 +156,18 @@ p {
   cursor: pointer;
 }
 
-.page__button:hover,
-.page__button:focus {
+.button:hover,
+.button:focus {
   font-weight: bold;
   background-color: #ffff00;
   text-decoration: underline;
 }
 
-.introduction__text {
+.banner__introduction {
   text-align: center;
 }
 
-.page__main {
+.main {
   grid-area: main;
   display: flex;
   flex-direction: column;
@@ -180,7 +180,7 @@ p {
   height: 100%;
 }
 
-.heading__section {
+.section__heading {
   font-family: 'Henny Penny', cursive;
   text-align: center;
 }
@@ -192,37 +192,37 @@ p {
 }
 
 /* Setting the display to none, will change onclick with JS */
-.section__1,
-.section__2,
-.section__3,
+.--section__1,
+.--section__2,
+.--section__3,
 /* 
     The review will only appear in this part if the user is on a desktop.
     Otherwise, it will appear, in the section of reviews (3).  
     */
-.quote__review {
+.banner__quote {
   display: none;
 }
 
-.section__4 {
+.--section__4 {
   text-align: center;
   display: none;
 }
 
 /* Footer */
-.page__footer {
+.footer {
   grid-area: footer;
   width: 100%;
   text-align: center;
   display: block;
 }
 
-.contact {
+.footer__contact {
   text-decoration: underline;
   color: #000000;
   font-size: 1.2rem;
 }
 
-.contact__text {
+.footer__social-media {
   text-align: center;
 }
 
@@ -233,14 +233,14 @@ Mobile layout
 */
 @media screen and (max-width: 599px) {
   /* Header */
-  .menu__list {
+  .nav__list {
     display: none;
     overflow: hidden;
     position: relative;
     padding: 0px;
   }
 
-  .menu__link {
+  .nav__link {
     display: block;
     margin-bottom: 10px;
     padding: 12px;
@@ -251,12 +251,12 @@ Mobile layout
   }
 
   /* Banner */
-  .banner__hero {
+  .banner {
     box-shadow: 3px 5px 20px 10px #ccc;
     margin: 20px 0;
   }
 
-  .motives__list__banner {
+  .banner__motives__list {
     text-align: center;
     margin-left: auto;
     margin-right: auto;
@@ -268,7 +268,7 @@ Mobile layout
     font-size: 4rem;
   }
 
-  .introduction__text {
+  .banner__introduction {
     font-size: 1.2rem;
   }
 
@@ -285,14 +285,14 @@ Tablet layout
 */
 @media screen and (min-width: 600px) and (max-width: 900px) {
   /* Header */
-  .menu__list {
+  .nav__list {
     display: none;
     overflow: hidden;
     position: relative;
     padding: 0px;
   }
 
-  .menu__link {
+  .nav__link {
     display: block;
     margin-bottom: 10px;
     padding: 12px;
@@ -303,12 +303,12 @@ Tablet layout
   }
 
   /* Banner */
-  .banner__hero {
+  .banner {
     box-shadow: 3px 5px 20px 10px #ccc;
     margin: 20px 0;
   }
 
-  .motives__list__banner {
+  .banner__motives__list {
     text-align: center;
     margin-left: auto;
     margin-right: auto;
@@ -323,7 +323,7 @@ Tablet layout
     font-size: 4rem;
   }
 
-  .page__button {
+  .button {
     font-size: 2.5rem;
   }
 
@@ -346,7 +346,7 @@ Desktop layout
     margin-bottom: 10px;
   }
 
-  .grid__container {
+  .grid {
     grid-template-columns: 15% 85%;
     grid-template-rows: min-content;
     grid-template-areas:
@@ -357,14 +357,14 @@ Desktop layout
   }
 
   /* Header */
-  .mobile__menu,
+  .nav--mobile__menu,
   .change .bar1,
   .change .bar2,
   .change .bar3 {
     display: none;
   }
 
-  .navbar__menu {
+  .nav {
     height: 100vh;
     position: fixed;
     width: 15%;
@@ -378,7 +378,7 @@ Desktop layout
     box-shadow: 10px 1px 10px 5px #ccc;
   }
 
-  .menu__list {
+  .nav__list {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -387,7 +387,7 @@ Desktop layout
     list-style-type: none;
   }
 
-  .menu__link {
+  .nav__link {
     text-decoration: none;
     color: #000000;
     font-size: 1.3rem;
@@ -396,18 +396,18 @@ Desktop layout
     border-bottom: 2px inset #000000;
   }
 
-  .menu__link:hover,
-  .menu__link:focus {
+  .nav__link:hover,
+  .nav__link:focus {
     background-color: #657482;
   }
 
   /* Banner */
 
-  .banner__hero {
+  .banner {
     margin: 0px;
   }
 
-  .heading__page {
+  .page__heading {
     margin-top: 5px;
   }
 
@@ -417,7 +417,7 @@ Desktop layout
     align-items: flex-start;
   }
 
-  .motives__list__banner {
+  .banner__motives__list {
     text-align: left;
     width: 20%;
     margin-left: auto;
@@ -431,7 +431,7 @@ Desktop layout
     font-size: 4rem;
   }
 
-  .quote__review {
+  .banner__quote {
     display: block;
     margin-right: auto;
     font-style: italic;
@@ -439,12 +439,12 @@ Desktop layout
     height: 100%;
   }
 
-  .introduction__text {
+  .banner__introduction {
     font-size: 1.5rem;
   }
 
   /* Main content */
-  .section__box {
+  .main__section {
     padding: 50px;
   }
 
