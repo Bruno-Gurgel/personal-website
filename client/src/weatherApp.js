@@ -8,7 +8,7 @@ import './style/weather_app/style.css';
 document.querySelector('#entryHolder').style.display = 'none';
 
 // HTML DOM target
-const button = document.querySelector('.button');
+const button = document.querySelector('.form__button');
 
 // Event listener to add function to existing HTML DOM element
 button.addEventListener('click', () => {
