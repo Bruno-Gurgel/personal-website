@@ -30,7 +30,7 @@ body {
 }
 
 /* Mobile first */
-.grid__container {
+.grid {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: min-content;
@@ -39,19 +39,19 @@ body {
     'recent';
 }
 
-.top__main {
+.form {
   grid-area: main;
   text-align: center;
 }
 
-.heading__top {
+.form__heading {
   font-family: 'Syne Mono', monospace;
   font-size: 2.5rem;
   font-weight: bold;
   text-decoration: underline;
 }
 
-.project__obs {
+.form__observation {
   text-align: justify;
   padding: 0 15px;
 }
@@ -65,21 +65,21 @@ body {
   font-weight: normal;
 }
 
-.zipcode {
+.form__zipcode {
   font-size: 2rem;
 }
 
-.feeling {
+.form__feeling {
   margin-top: 10px;
   font-size: 1.5rem;
 }
 
-.label {
+.form__label {
   display: block;
   margin-bottom: 20px;
 }
 
-.input {
+.form__input {
   height: 4rem;
   width: 75%;
   background-color: #f9f9fa;
@@ -93,7 +93,7 @@ body {
   line-height: 4rem;
 }
 
-.button {
+.form__button {
   height: 6rem;
   width: 6rem;
   background-color: #ff8bab;
@@ -105,7 +105,7 @@ body {
   margin-bottom: 10px;
 }
 
-.button:hover {
+.form__button:hover {
   background-color: #ff5483;
   text-decoration: underline;
 }
@@ -147,11 +147,11 @@ body {
   display: none;
 }
 
-.low__main {
+.results {
   grid-area: recent;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: min-content;
+  grid-template-rows: 10% 90%;
   grid-template-areas:
     'heading'
     'date'
@@ -160,7 +160,7 @@ body {
   border-top: 2px dotted #000000;
 }
 
-.heading__bottom {
+.results__heading {
   grid-area: heading;
   font-family: 'Syne Mono', monospace;
   text-align: center;
@@ -194,60 +194,61 @@ body {
 }
 
 @media (min-width: 600px) and (max-width: 900px) {
-  .heading__top {
+  .form__heading {
     font-size: 4rem;
   }
 
-  .project__obs {
+  .form__observation {
     padding: 0 20px;
   }
 
-  .zipcode {
+  .form__zipcode {
     font-size: 3rem;
   }
 
-  .feeling {
+  .form__feeling {
     font-size: 2rem;
   }
 
-  .input {
+  .form__input {
     height: 6rem;
     width: 60%;
     font-size: 2rem;
     line-height: 6rem;
   }
 
-  .heading__bottom {
+  .results__heading {
     font-size: 2.5rem;
   }
 }
 
 @media (min-width: 901px) {
-  .heading__top {
+  .form__heading {
     font-size: 5rem;
     margin: 10px 0;
   }
-  .project__obs {
+
+  .form__observation {
     padding: 0 30px;
   }
 
-  .zipcode {
+  .form__zipcode {
     font-size: 3rem;
     margin-top: 30px;
   }
 
-  .feeling {
+  .form__feeling {
     font-size: 2rem;
   }
 
-  .input {
+  .form__input {
     height: 6rem;
     width: 60%;
     font-size: 2rem;
     line-height: 6rem;
   }
 
-  .low__main {
+  .results {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: min-content;
@@ -256,7 +257,7 @@ body {
       'date    temp    feeling';
   }
 
-  .heading__bottom {
+  .results__heading {
     font-size: 3rem;
   }
 }
