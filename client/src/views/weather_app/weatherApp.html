@@ -8,28 +8,28 @@
 </head>
 
 <body>
-  <div class="grid__container">
-    <main class="page__main">
-      <div class="top__main">
+  <div class="grid">
+    <main class="main">
+      <div class="form">
         <a href="index.html" class="home__link">Return to Website</a>
-        <h1 class="heading__top">Weather Journal App</h1>
-        <h2 class="project__obs">Obs: This project uses a free API that only fetches places that have ZIP Codes.
+        <h1 class="form__heading">Weather Journal App</h1>
+        <h2 class="form__observation">Obs: This project uses a free API that only fetches places that have ZIP Codes.
           Countries that have Postal
           Codes can't be searched through this API.</h2>
-        <div class="zipcode">
-          <label for="zip" class="label">Enter Zip code here</label>
-          <input type="text" id="zip" placeholder="Type in here" class="input">
+        <div class="form__zipcode">
+          <label for="zip" class="form__label">Enter Zip code here</label>
+          <input type="text" id="zip" placeholder="Type in here" class="form__input">
         </div>
-        <div class="feeling">
-          <label for="feeling" class="label">And how are you feeling?</label>
-          <textarea type="text" id="feeling" placeholder="Open your heart" class="input"></textarea>
+        <div class="form__feeling">
+          <label for="feeling" class="form__label">And how are you feeling?</label>
+          <textarea type="text" id="feeling" placeholder="Open your heart" class="form__input"></textarea>
         </div>
-        <button id="generate" class="button" type="submit">Generate</button>
+        <button id="generate" class="form__button" type="submit">Generate</button>
       </div>
       <div class="loader"></div>
       <div id="error" class="main__error"></div>
-      <div class="low__main" id="entryHolder">
-        <h2 class="heading__bottom">Result</h2>
+      <div class="results" id="entryHolder">
+        <h2 class="results__heading">Result</h2>
         <div class="date" id="date">
           <ul id="date_list" class="list"></ul>
         </div>
@@ -42,6 +42,5 @@
       </div>
     </main>
   </div>
+  <script src="js/app.js"></script>
 </body>
-
-</html>
