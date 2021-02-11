@@ -1,6 +1,6 @@
 // Tablet layout
 @media screen and (min-width: 600px) and (max-width: 900px) {
-  form {
+  .form {
     padding: 40px;
     width: 80%;
     .input__text {
@@ -18,7 +18,7 @@
 
 // Desktop layout
 @media screen and (min-width: 901px) {
-  form {
+  .form {
     padding: 40px;
     width: 80%;
     .input__text {

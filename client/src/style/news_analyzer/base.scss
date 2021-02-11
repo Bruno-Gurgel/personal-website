@@ -12,10 +12,11 @@ body {
   font-family: $font;
   p {
     margin: 0px;
+    width: $full-width;
   }
 }
 
-.grid__container {
+.grid {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: min-content;
@@ -26,12 +27,12 @@ body {
   gap: 20px;
 }
 
-nav {
+.nav {
   grid-area: nav;
   width: $full-width;
 }
 
-main {
+.main {
   grid-area: main;
   width: $full-width;
   .loader {
@@ -80,7 +81,7 @@ main {
   }
 }
 
-footer {
+.footer {
   grid-area: footer;
   width: $full-width;
 }

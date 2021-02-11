@@ -1,13 +1,13 @@
-footer {
+.footer {
   text-align: center;
   border-top: 2px dotted #000000;
-  h2 {
+  .footer__heading {
     font-size: 2rem;
   }
-  p {
+  .footer__item {
     font-size: 1.5rem;
     margin: 10px 0;
-    a {
+    .footer__link {
       color: #000000;
     }
   }
