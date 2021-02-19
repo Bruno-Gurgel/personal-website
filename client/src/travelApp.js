@@ -124,6 +124,13 @@ document.addEventListener('DOMContentLoaded', async () => {
       appView.init();
       this.mainFunction();
     },
+    async getAPIKey(keyName) {
+      const req = await fetch(
+        'https://bmg-personal-website-server.herokuapp.com/api'
+      );
+      const data = await req.json();
+      model.apiData.apiKey = data[keyName];
+    },
     async getData(urlToFetch) {
       const res = await fetch(urlToFetch);
       model.apiData.apiResponse = await res.json();
@@ -216,12 +223,7 @@ document.addEventListener('DOMContentLoaded', async () => {
      * @returns {object} The object containing the desired weather and city/country data.
      */
     async weatherbitApi() {
-      // Getting API key from the server
-      const req = await fetch(
-        'https://bmg-personal-website-server.herokuapp.com/api'
-      );
-      const data = await req.json();
-      model.apiData.apiKey = data.weatherBitKey;
+      await controller.getAPIKey('weatherBitKey');
 
       await controller.getData(
         `https://api.weatherbit.io/v2.0/current?lat=${model.apiData.latitude}&lon=${model.apiData.longitude}&key=${model.apiData.apiKey}`
@@ -244,10 +246,8 @@ document.addEventListener('DOMContentLoaded', async () => {
      * @returns {object} The object containing the photo.
      */
     async pixabayApi() {
-      // Getting API key from the server
-      const req = await fetch('/api');
-      const data = await req.json();
-      model.apiData.apiKey = data.photoKey;
+      await controller.getAPIKey('photoKey');
+
       // Fetching data
       await controller.getData(
         `https://pixabay.com/api/?key=${model.apiData.apiKey}&q=${model.apiData.weatherResponse.city_name}&image_type=photo`
@@ -318,8 +318,6 @@ document.addEventListener('DOMContentLoaded', async () => {
           </p>
           <p><a href="https://www.weatherbit.io/" target="_blank">Source</a></p>
           <br>
-          <p>Countdown: In ${model.differenceDays.diffDaysCountdown} days you will be in ${model.apiData.newData.city_name}!
-             You will stay there for ${model.differenceDays.diffDaysTrip} days!</p>
           <h3>To-do List</h3>
           <div class="toDo__header">
               <input type="text" id="myInput" placeholder="Title...">
